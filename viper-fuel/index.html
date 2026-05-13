@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Viper Fuel — Diesel On-Demand for Cape Town's Working Industries</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --viper-red: #E11D2A;
+    --viper-red-deep: #B0141F;
+    --viper-black: #0A0A0A;
+    --viper-graphite: #1A1A1A;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--viper-black); color: white; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: 0.01em; }
+  .gradient-red { background: linear-gradient(135deg, var(--viper-red) 0%, var(--viper-red-deep) 100%); }
+  .grain::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 4px 4px; pointer-events: none;
+  }
+  .flame-bg {
+    background:
+      radial-gradient(circle at 80% 30%, rgba(225,29,42,0.25) 0%, transparent 50%),
+      radial-gradient(circle at 20% 70%, rgba(225,29,42,0.15) 0%, transparent 40%),
+      var(--viper-black);
+  }
+  .card-hover { transition: transform 0.3s, border-color 0.3s; }
+  .card-hover:hover { transform: translateY(-4px); border-color: var(--viper-red); }
+  .marquee { animation: marquee 30s linear infinite; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .pulse-dot {
+    width: 10px; height: 10px; background: #22c55e; border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ============ NAV ============ -->
+<nav class="fixed top-0 inset-x-0 z-50 bg-black/80 backdrop-blur border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2">
+      <span class="inline-block w-8 h-8 rounded-md gradient-red flex items-center justify-center font-display text-lg">V</span>
+      <span class="font-display text-xl tracking-wider">VIPER FUEL</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#industries" class="hover:text-red-500 transition">Industries</a>
+      <a href="#how" class="hover:text-red-500 transition">How It Works</a>
+      <a href="#why" class="hover:text-red-500 transition">Why Viper</a>
+      <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="tel:0848931968" class="hidden sm:flex items-center gap-2 text-sm font-semibold">
+        <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        084 893 1968
+      </a>
+      <a href="#contact" class="gradient-red text-white px-4 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition">Get a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative flame-bg pt-32 pb-24 lg:pb-32 overflow-hidden">
+  <div class="absolute inset-0 grain"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="flex items-center gap-2 mb-6">
+      <span class="pulse-dot"></span>
+      <span class="text-xs uppercase tracking-[0.2em] text-green-400 font-semibold">Now serving the Cape Metro</span>
+    </div>
+    <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] max-w-5xl">
+      Diesel <span class="text-red-500">on-demand</span><br/>
+      for Cape Town's<br/>
+      working industries.
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg md:text-xl text-white/70 leading-relaxed">
+      2-hour callback. Fuel delivered to site, same day. Bulk pricing on orders from 1,000 litres.
+      Agriculture, construction, transport, generators, earthmoving — we keep your operation running.
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row gap-4">
+      <a href="tel:0848931968" class="gradient-red px-7 py-4 rounded-md font-semibold text-base inline-flex items-center justify-center gap-2 hover:opacity-90 transition">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        Call 084 893 1968
+      </a>
+      <a href="https://wa.me/27848931968" class="bg-white text-black px-7 py-4 rounded-md font-semibold text-base inline-flex items-center justify-center gap-2 hover:bg-white/90 transition">
+        <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div><div class="font-display text-3xl text-red-500">2hr</div><div class="text-xs text-white/60 uppercase tracking-wider mt-1">Callback time</div></div>
+      <div><div class="font-display text-3xl text-red-500">1,000L+</div><div class="text-xs text-white/60 uppercase tracking-wider mt-1">Minimum delivery</div></div>
+      <div><div class="font-display text-3xl text-red-500">Same Day</div><div class="text-xs text-white/60 uppercase tracking-wider mt-1">On-site delivery</div></div>
+      <div><div class="font-display text-3xl text-red-500">SABS</div><div class="text-xs text-white/60 uppercase tracking-wider mt-1">Spec diesel only</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section id="industries" class="py-24 bg-[#0A0A0A] border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16 max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.2em] text-red-500 font-semibold mb-3">Industries we power</div>
+      <h2 class="font-display text-4xl md:text-5xl leading-tight">When your operation runs on diesel, you can't afford to wait.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card 1 -->
+      <div class="card-hover bg-[#141414] border border-white/5 p-7 rounded-lg">
+        <div class="w-12 h-12 rounded-md gradient-red flex items-center justify-center mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7l9-4 9 4M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l9 4 9-4"/></svg>
+        </div>
+        <h3 class="font-display text-2xl mb-2">Agriculture</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Tractors, irrigation pumps, harvesters. Bulk diesel direct to the farm — no trips to town, no theft risk from on-site storage.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="card-hover bg-[#141414] border border-white/5 p-7 rounded-lg">
+        <div class="w-12 h-12 rounded-md gradient-red flex items-center justify-center mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m12 0h2a1 1 0 001-1v-3.65a1 1 0 00-.22-.624l-3.48-4.35A1 1 0 0016.52 8H13"/></svg>
+        </div>
+        <h3 class="font-display text-2xl mb-2">Transport & Logistics</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Fleet refuelling on-site or in-depot. Cut downtime, eliminate detours to filling stations, lock in better per-litre pricing on volume.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="card-hover bg-[#141414] border border-white/5 p-7 rounded-lg">
+        <div class="w-12 h-12 rounded-md gradient-red flex items-center justify-center mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="font-display text-2xl mb-2">Generators</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Load-shedding doesn't wait. Same-day top-ups for standby gensets at data centres, malls, hospitals, plants — clean spec fuel only.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="card-hover bg-[#141414] border border-white/5 p-7 rounded-lg">
+        <div class="w-12 h-12 rounded-md gradient-red flex items-center justify-center mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+        </div>
+        <h3 class="font-display text-2xl mb-2">Excavators</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Earthmoving plant runs hard. We refuel TLBs, excavators, graders, and dump trucks on-site so your operators never stop working.</p>
+      </div>
+      <!-- Card 5 -->
+      <div class="card-hover bg-[#141414] border border-white/5 p-7 rounded-lg">
+        <div class="w-12 h-12 rounded-md gradient-red flex items-center justify-center mb-5">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3 class="font-display text-2xl mb-2">Construction</h3>
+        <p class="text-sm text-white/60 leading-relaxed">Site managers, foremen, project leads — order before you run dry, get fuel to the site without a single operator leaving plant.</p>
+      </div>
+      <!-- Card 6 — overflow / "Something else?" -->
+      <div class="card-hover bg-gradient-to-br from-red-900/20 to-transparent border border-red-500/30 p-7 rounded-lg flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-md bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-display text-2xl mb-2">Something else?</h3>
+          <p class="text-sm text-white/60 leading-relaxed">If your operation runs on diesel and you need it delivered, talk to us. We'll figure out a solution.</p>
+        </div>
+        <a href="#contact" class="mt-5 text-sm font-semibold text-red-500 hover:text-red-400 inline-flex items-center gap-1">Get a quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="py-24 bg-[#141414] border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mb-16 max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.2em] text-red-500 font-semibold mb-3">How it works</div>
+      <h2 class="font-display text-4xl md:text-5xl leading-tight">Three steps. No filling-station detours.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-display text-7xl text-red-500/30 mb-4">01</div>
+        <h3 class="font-display text-2xl mb-3">Call or WhatsApp</h3>
+        <p class="text-white/60 leading-relaxed">Tell us the litres, your site, and when you need it. 2-hour callback with confirmed price and ETA — no back-and-forth.</p>
+      </div>
+      <div>
+        <div class="font-display text-7xl text-red-500/30 mb-4">02</div>
+        <h3 class="font-display text-2xl mb-3">We deliver to site</h3>
+        <p class="text-white/60 leading-relaxed">Our tanker rolls direct to your gate or pit. SABS-spec diesel, calibrated meter, signed off on delivery. Your operators stay put.</p>
+      </div>
+      <div>
+        <div class="font-display text-7xl text-red-500/30 mb-4">03</div>
+        <h3 class="font-display text-2xl mb-3">Pay your way</h3>
+        <p class="text-white/60 leading-relaxed">EFT, account terms, or card. Bulk pricing kicks in from 1,000 litres. Repeat orders get faster every time — we learn your site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY VIPER ============ -->
+<section id="why" class="py-24 bg-[#0A0A0A] border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-red-500 font-semibold mb-3">Why Viper Fuel</div>
+        <h2 class="font-display text-4xl md:text-5xl leading-tight mb-6">"Powering your business,<br/>one litre at a time."</h2>
+        <p class="text-white/60 leading-relaxed text-lg">Bigger players treat your delivery like a number on a route sheet. We treat it like the reason your project gets finished on time. Cape Town-based, operator-led, accountable to the foremen and ops managers we serve.</p>
+      </div>
+      <div class="space-y-5">
+        <div class="flex gap-4 p-5 rounded-lg bg-[#141414] border border-white/5">
+          <div class="w-10 h-10 rounded-md gradient-red flex-shrink-0 flex items-center justify-center font-display text-lg">⚡</div>
+          <div><div class="font-semibold mb-1">2-hour callback, guaranteed</div><div class="text-sm text-white/60">No quote sitting in someone's inbox for 3 days. We move while your competitors are still emailing.</div></div>
+        </div>
+        <div class="flex gap-4 p-5 rounded-lg bg-[#141414] border border-white/5">
+          <div class="w-10 h-10 rounded-md gradient-red flex-shrink-0 flex items-center justify-center font-display text-lg">📍</div>
+          <div><div class="font-semibold mb-1">Cape Metro coverage</div><div class="text-sm text-white/60">From Atlantis to Stellenbosch, Helderberg to Hout Bay. We know the routes, the gate guards, and the back ways in.</div></div>
+        </div>
+        <div class="flex gap-4 p-5 rounded-lg bg-[#141414] border border-white/5">
+          <div class="w-10 h-10 rounded-md gradient-red flex-shrink-0 flex items-center justify-center font-display text-lg">🛢️</div>
+          <div><div class="font-semibold mb-1">SABS-spec diesel only</div><div class="text-sm text-white/60">No watered-down, no off-spec, no surprises. Your plant gets the same diesel a major refinery would send.</div></div>
+        </div>
+        <div class="flex gap-4 p-5 rounded-lg bg-[#141414] border border-white/5">
+          <div class="w-10 h-10 rounded-md gradient-red flex-shrink-0 flex items-center justify-center font-display text-lg">👤</div>
+          <div><div class="font-semibold mb-1">One contact, every time</div><div class="text-sm text-white/60">You speak to Jean. Not a call centre. Not a different name every order. Operator-led, accountable.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUSTED BY ============ -->
+<section class="py-16 bg-[#141414] border-t border-white/5 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <div class="text-xs uppercase tracking-[0.2em] text-white/40 font-semibold mb-8">Trusted by site managers and ops leads across the Cape</div>
+    <div class="flex gap-12 marquee opacity-50">
+      <span class="font-display text-2xl whitespace-nowrap">CONSTRUCTION CO. ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">CAPE LOGISTICS ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">WINELANDS AGRI ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">PROJECTS GROUP ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">METRO PLANT HIRE ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">CONSTRUCTION CO. ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">CAPE LOGISTICS ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">WINELANDS AGRI ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">PROJECTS GROUP ▲</span>
+      <span class="font-display text-2xl whitespace-nowrap">METRO PLANT HIRE ▲</span>
+    </div>
+    <div class="text-xs text-white/30 mt-6">Logo placeholders — swap in real client logos as you sign them.</div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / QUOTE FORM ============ -->
+<section id="contact" class="py-24 flame-bg border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-5 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs uppercase tracking-[0.2em] text-red-500 font-semibold mb-3">Get a quote</div>
+        <h2 class="font-display text-4xl md:text-5xl leading-tight mb-6">Need diesel?<br/>Let's move.</h2>
+        <p class="text-white/60 leading-relaxed mb-10">Drop the basics in the form, or skip it and just call. Either works. We're on the road most days — phone gets answered fastest.</p>
+
+        <div class="space-y-4">
+          <a href="tel:0848931968" class="flex items-center gap-4 p-5 rounded-lg bg-black/40 border border-white/10 hover:border-red-500 transition">
+            <div class="w-12 h-12 rounded-md gradient-red flex-shrink-0 flex items-center justify-center"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg></div>
+            <div><div class="text-xs text-white/40 uppercase tracking-wider">Call Jean</div><div class="font-semibold text-lg">084 893 1968</div></div>
+          </a>
+          <a href="https://wa.me/27848931968" class="flex items-center gap-4 p-5 rounded-lg bg-black/40 border border-white/10 hover:border-red-500 transition">
+            <div class="w-12 h-12 rounded-md bg-green-500 flex-shrink-0 flex items-center justify-center"><svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg></div>
+            <div><div class="text-xs text-white/40 uppercase tracking-wider">WhatsApp</div><div class="font-semibold text-lg">Chat now</div></div>
+          </a>
+          <a href="mailto:jean@viperfuel.co.za" class="flex items-center gap-4 p-5 rounded-lg bg-black/40 border border-white/10 hover:border-red-500 transition">
+            <div class="w-12 h-12 rounded-md bg-white/10 flex-shrink-0 flex items-center justify-center"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+            <div><div class="text-xs text-white/40 uppercase tracking-wider">Email</div><div class="font-semibold">jean@viperfuel.co.za</div></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3 bg-black/40 backdrop-blur border border-white/10 p-8 rounded-lg">
+        <form class="space-y-5">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">Your name *</label>
+              <input type="text" class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:border-red-500 focus:outline-none transition" placeholder="e.g. Site Manager" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">Phone *</label>
+              <input type="tel" class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:border-red-500 focus:outline-none transition" placeholder="+27..." />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">Industry *</label>
+            <select class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:border-red-500 focus:outline-none transition">
+              <option>Construction</option>
+              <option>Agriculture</option>
+              <option>Transport & Logistics</option>
+              <option>Generators / Standby Power</option>
+              <option>Excavators / Earthmoving</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">Site location *</label>
+              <input type="text" class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:border-red-500 focus:outline-none transition" placeholder="Suburb / town" />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">Estimated volume (L)</label>
+              <input type="text" class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:border-red-500 focus:outline-none transition" placeholder="e.g. 2,500" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">When do you need it?</label>
+            <div class="flex flex-wrap gap-2">
+              <label class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-md cursor-pointer hover:border-red-500"><input type="radio" name="urgency" class="accent-red-500" /> Today</label>
+              <label class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-md cursor-pointer hover:border-red-500"><input type="radio" name="urgency" class="accent-red-500" /> This week</label>
+              <label class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-md cursor-pointer hover:border-red-500"><input type="radio" name="urgency" class="accent-red-500" /> Recurring order</label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-white/60 mb-2 font-semibold">Anything else?</label>
+            <textarea rows="3" class="w-full bg-white/5 border border-white/10 rounded-md px-4 py-3 focus:border-red-500 focus:outline-none transition" placeholder="Site access notes, account questions, etc."></textarea>
+          </div>
+          <button type="submit" class="w-full gradient-red px-7 py-4 rounded-md font-semibold text-base hover:opacity-90 transition">Request a Quote →</button>
+          <p class="text-xs text-white/40 text-center">2-hour callback. We don't share your details. Promise.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-black border-t border-white/10 py-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <div class="flex items-center gap-3">
+        <span class="inline-block w-10 h-10 rounded-md gradient-red flex items-center justify-center font-display text-xl">V</span>
+        <div>
+          <div class="font-display text-2xl tracking-wider">VIPER FUEL</div>
+          <div class="text-xs text-white/40 italic">Powering your business, one litre at a time.</div>
+        </div>
+      </div>
+      <div class="text-sm text-white/40 space-y-1">
+        <div>📞 084 893 1968 · ✉ jean@viperfuel.co.za</div>
+        <div>Serving the Cape Town Metro · Mon–Sat, 06:00–19:00</div>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row gap-3 justify-between text-xs text-white/30">
+      <div>© 2026 Viper Fuel (Pty) Ltd. All rights reserved.</div>
+      <div>Built by <a href="https://alqode.com" class="text-red-500 hover:text-red-400">&#123;alqode&#125;</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/27848931968" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+</body>
+</html>
