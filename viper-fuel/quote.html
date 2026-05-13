@@ -3,31 +3,67 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Viper Fuel — Website Quote · {alqode}</title>
+<title>Quotation ALQ-2026-001 · Viper Fuel</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --alq: #059669;
-    --alq-light: #10B981;
-    --viper: #E11D2A;
     --ink: #0F172A;
+    --slate-dark: #334155;
     --slate: #64748B;
-    --line: #E2E8F0;
-    --paper: #FAFAF7;
+    --slate-light: #94A3B8;
+    --line: #CBD5E1;
+    --line-soft: #E2E8F0;
+    --paper: #FFFFFF;
+    --paper-soft: #F8FAFC;
   }
-  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); }
-  .font-display { font-family: 'Playfair Display', serif; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: #F1F5F9; font-size: 13px; line-height: 1.5; }
   .text-alq { color: var(--alq); }
-  .text-viper { color: var(--viper); }
   .text-slate { color: var(--slate); }
+  .text-slate-dark { color: var(--slate-dark); }
+  .text-slate-light { color: var(--slate-light); }
   .border-line { border-color: var(--line); }
-  @page { size: A4; margin: 18mm; }
+  .border-line-soft { border-color: var(--line-soft); }
+  .bg-paper-soft { background: var(--paper-soft); }
+
+  /* A4 page sheet */
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    max-width: 100%;
+    margin: 20px auto;
+    background: var(--paper);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 20mm;
+  }
+  @page { size: A4; margin: 0; }
   @media print {
-    body { background: white; }
+    body { background: white; font-size: 11pt; }
+    .sheet { box-shadow: none; margin: 0; width: auto; min-height: auto; padding: 16mm; }
     .no-print { display: none !important; }
   }
+
+  table.line-items { width: 100%; border-collapse: collapse; }
+  table.line-items th {
+    text-align: left; font-size: 10px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--slate); padding: 8px 10px;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  table.line-items th.num { text-align: right; }
+  table.line-items td {
+    padding: 14px 10px; vertical-align: top;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  table.line-items td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table.line-items tr.subtotal td { border-bottom: 1px solid var(--line); padding: 8px 10px; }
+  table.line-items tr.total td {
+    border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+    padding: 12px 10px; font-weight: 700; font-size: 15px;
+  }
+
   .print-fab {
     position: fixed; bottom: 20px; right: 20px;
     background: var(--ink); color: white;
@@ -43,99 +79,180 @@
 
 <button onclick="window.print()" class="print-fab no-print">⤓ Save as PDF</button>
 
-<div class="max-w-[640px] mx-auto px-6 md:px-10 py-12">
+<div class="sheet">
 
-  <!-- Header -->
-  <header class="flex justify-between items-baseline pb-6 border-b border-line">
+  <!-- ====== TOP STRIP: LOGO + QUOTATION META ====== -->
+  <header class="flex justify-between items-start pb-6 border-b-2 border-ink">
     <div>
-      <div class="font-semibold text-alq text-xl">&#123;alqode&#125;</div>
-      <div class="text-[10px] uppercase tracking-widest text-slate mt-1">Digital Systems Agency · Cape Town</div>
+      <div class="text-alq text-2xl font-bold tracking-tight">&#123;alqode&#125;</div>
+      <div class="text-[10px] uppercase tracking-widest text-slate-light mt-0.5">Digital Systems Agency</div>
+      <div class="text-[11px] text-slate mt-3">
+        Cape Town, South Africa<br/>
+        alqode.com
+      </div>
     </div>
-    <div class="text-[10px] uppercase tracking-widest text-slate">2026-05-13</div>
+    <div class="text-right">
+      <div class="text-2xl font-bold tracking-tight text-ink">QUOTATION</div>
+      <table class="text-[11px] mt-3 ml-auto">
+        <tr><td class="text-slate pr-3 text-right uppercase tracking-wider text-[10px]">Quote No.</td><td class="font-semibold">ALQ-2026-001</td></tr>
+        <tr><td class="text-slate pr-3 text-right uppercase tracking-wider text-[10px]">Issue Date</td><td>13 May 2026</td></tr>
+        <tr><td class="text-slate pr-3 text-right uppercase tracking-wider text-[10px]">Valid Until</td><td>27 May 2026</td></tr>
+      </table>
+    </div>
   </header>
 
-  <!-- Title -->
-  <section class="mt-10 mb-8">
-    <div class="text-[11px] uppercase tracking-[0.25em] text-alq font-semibold mb-3">Website quote · Viper Fuel</div>
-    <h1 class="font-display text-4xl md:text-5xl leading-tight">
-      For <span class="text-viper">Jean West</span>,<br/>
-      Viper Fuel.
-    </h1>
-  </section>
-
-  <!-- The pitch in one paragraph -->
-  <section class="mb-10">
-    <p class="text-lg leading-relaxed text-slate">
-      A clean, mobile-first website that gives Viper Fuel the credibility of a serious operation and turns site managers searching for diesel delivery into phone calls and WhatsApp messages.
-    </p>
-  </section>
-
-  <!-- Live preview -->
-  <a href="https://alqode-dev.github.io/client-mockups/viper-fuel/" class="block mb-10 p-6 bg-ink text-white hover:bg-alq transition group">
-    <div class="text-[10px] uppercase tracking-[0.3em] text-slate-300 mb-2">Live preview</div>
-    <div class="font-display text-xl break-all group-hover:underline">alqode-dev.github.io/client-mockups/viper-fuel/</div>
-    <div class="text-sm text-slate-300 mt-2">Open this on your phone — it's the actual working site you'll get.</div>
-  </a>
-
-  <!-- Price -->
-  <section class="mb-10 p-8 border-2 border-ink">
-    <div class="flex items-baseline justify-between">
-      <div>
-        <div class="text-[10px] uppercase tracking-[0.25em] text-slate mb-2">Once-off</div>
-        <div class="font-display text-5xl md:text-6xl">R3,950</div>
-      </div>
-      <div class="text-right text-xs text-slate">
-        <div>No monthly fees</div>
-        <div>No surprises</div>
-      </div>
+  <!-- ====== BILL TO + FROM ====== -->
+  <section class="grid grid-cols-2 gap-10 mt-8 mb-10">
+    <div>
+      <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-2">Bill to</div>
+      <div class="font-semibold text-ink text-base">Viper Fuel</div>
+      <div class="text-slate-dark">Attention: Jean West</div>
+      <div class="text-slate-dark">Head of Operations &amp; Logistics</div>
+      <div class="text-slate-dark mt-1">+27 84 893 1968</div>
+    </div>
+    <div>
+      <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-2">Prepared by</div>
+      <div class="font-semibold text-ink text-base">{alqode}</div>
+      <div class="text-slate-dark">Mohammed Hamdaan Dhaler</div>
+      <div class="text-slate-dark">Founder</div>
+      <div class="text-slate-dark mt-1">alqodez@gmail.com</div>
     </div>
   </section>
 
-  <!-- What's included — 8 plain-English bullets -->
-  <section class="mb-10">
-    <div class="text-[11px] uppercase tracking-[0.25em] text-alq font-semibold mb-5">Everything included</div>
-    <ul class="space-y-3 text-base">
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>2-page site — Home + Contact</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>Call + WhatsApp buttons on every section</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>Quote-request form that lands in your email</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>Mobile-first design — built for site managers on phones</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>We sort out the viperfuel.co.za domain situation</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>Hosting included for Year 1</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>Set up to be found on Google</span></li>
-      <li class="flex gap-3"><span class="text-alq font-bold">·</span><span>1 round of changes after first build + 30-min handover call</span></li>
-    </ul>
-  </section>
+  <!-- ====== LINE ITEMS TABLE ====== -->
+  <table class="line-items mb-8">
+    <thead>
+      <tr>
+        <th style="width: 50%;">Description</th>
+        <th class="num" style="width: 10%;">Qty</th>
+        <th class="num" style="width: 20%;">Unit Price</th>
+        <th class="num" style="width: 20%;">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="font-semibold text-ink">Website Design &amp; Development</div>
+          <div class="text-slate text-[11px] mt-1 leading-relaxed">2-page responsive website (Home + Contact). Brand-styled to existing Viper Fuel identity. Mobile-first. Click-to-call &amp; WhatsApp buttons throughout. 1 round of revisions included.</div>
+        </td>
+        <td class="num">1</td>
+        <td class="num">R 3,500.00</td>
+        <td class="num font-semibold">R 3,500.00</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="font-semibold text-ink">Form Integration &amp; WhatsApp Setup</div>
+          <div class="text-slate text-[11px] mt-1 leading-relaxed">Quote-request form configured to forward enquiries directly to your email + WhatsApp Business integration.</div>
+        </td>
+        <td class="num">1</td>
+        <td class="num">R 250.00</td>
+        <td class="num font-semibold">R 250.00</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="font-semibold text-ink">Domain, Hosting &amp; Search Visibility</div>
+          <div class="text-slate text-[11px] mt-1 leading-relaxed">Domain handling (resolves viperfuel.co.za situation) + Year-1 hosting + setup for Google search visibility + 30-min handover training.</div>
+        </td>
+        <td class="num">1</td>
+        <td class="num">R 200.00</td>
+        <td class="num font-semibold">R 200.00</td>
+      </tr>
 
-  <!-- Timeline + How to start in one strip -->
-  <section class="grid md:grid-cols-2 gap-4 mb-10">
-    <div class="p-5 border border-line">
-      <div class="text-[10px] uppercase tracking-[0.25em] text-slate mb-2">Timeline</div>
-      <div class="font-display text-2xl">Live in 2 weeks</div>
-      <div class="text-sm text-slate mt-1">From the day you say go</div>
+      <tr class="subtotal">
+        <td colspan="3" class="num text-slate-dark">Subtotal</td>
+        <td class="num font-semibold">R 3,950.00</td>
+      </tr>
+      <tr class="subtotal">
+        <td colspan="3" class="num text-slate-dark">VAT <span class="text-slate-light text-[10px]">(supplier not VAT-registered)</span></td>
+        <td class="num">R 0.00</td>
+      </tr>
+      <tr class="total">
+        <td colspan="3" class="num">TOTAL DUE</td>
+        <td class="num text-alq">R 3,950.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ====== PAYMENT INFO STRIP ====== -->
+  <section class="grid grid-cols-2 gap-6 mb-8">
+
+    <!-- Payment terms -->
+    <div class="border border-line p-5">
+      <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-3">Payment Terms</div>
+      <table class="text-[12px] w-full">
+        <tr><td class="text-slate-dark py-1">50% Deposit on acceptance</td><td class="text-right font-semibold">R 1,975.00</td></tr>
+        <tr><td class="text-slate-dark py-1">50% On go-live</td><td class="text-right font-semibold">R 1,975.00</td></tr>
+        <tr class="border-t border-line-soft"><td class="text-slate-dark pt-2 font-semibold">Total payable</td><td class="text-right pt-2 font-bold">R 3,950.00</td></tr>
+      </table>
+      <div class="text-[10px] text-slate mt-3 italic">For PayFast payment link instead of EFT, email alqodez@gmail.com</div>
     </div>
-    <div class="p-5 border border-line">
-      <div class="text-[10px] uppercase tracking-[0.25em] text-slate mb-2">Payment</div>
-      <div class="font-display text-2xl">50 / 50</div>
-      <div class="text-sm text-slate mt-1">Deposit now · balance on go-live</div>
+
+    <!-- Banking details -->
+    <div class="border border-line p-5 bg-paper-soft">
+      <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-3">Banking Details</div>
+      <table class="text-[12px] w-full">
+        <tr><td class="text-slate py-0.5 w-1/3">Bank</td><td class="font-medium">[BANK NAME]</td></tr>
+        <tr><td class="text-slate py-0.5">Account Name</td><td class="font-medium">[ACCOUNT NAME]</td></tr>
+        <tr><td class="text-slate py-0.5">Account No.</td><td class="font-medium">[ACCOUNT NUMBER]</td></tr>
+        <tr><td class="text-slate py-0.5">Branch Code</td><td class="font-medium">[BRANCH CODE]</td></tr>
+        <tr><td class="text-slate py-0.5">Account Type</td><td class="font-medium">[CHEQUE / SAVINGS]</td></tr>
+        <tr><td class="text-slate py-0.5">Reference</td><td class="font-medium">VF-ALQ001</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- ====== INCLUSIONS DETAIL ====== -->
+  <section class="mb-8">
+    <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-3">Scope of Inclusions</div>
+    <div class="grid grid-cols-2 gap-x-8 gap-y-1.5 text-[12px] text-slate-dark">
+      <div>· 2-page responsive website (Home + Contact)</div>
+      <div>· Brand-styled to Viper Fuel identity</div>
+      <div>· Click-to-call &amp; WhatsApp buttons</div>
+      <div>· Quote-request form → email + WhatsApp</div>
+      <div>· Mobile-first design</div>
+      <div>· Domain handling (viperfuel.co.za)</div>
+      <div>· Year-1 hosting included</div>
+      <div>· Google search visibility setup</div>
+      <div>· 1 round of revisions</div>
+      <div>· 30-min handover training</div>
+      <div>· Full site ownership on go-live</div>
+      <div>· Delivery: 2 weeks from deposit</div>
     </div>
   </section>
 
-  <!-- Accept -->
-  <section class="mb-10 p-6 bg-paper border-l-4 border-alq">
-    <div class="text-[11px] uppercase tracking-[0.25em] text-alq font-semibold mb-2">How to accept</div>
-    <p class="text-base text-ink">
-      Reply with "yes" or WhatsApp <strong>+27 84 893 1968</strong>. I'll send banking details and we start the next business day.
-    </p>
+  <!-- ====== MOCKUP LINK ====== -->
+  <section class="mb-8 p-4 border-l-4 border-alq bg-paper-soft">
+    <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-1">Live Mockup Preview</div>
+    <div class="text-[13px] font-medium"><a href="https://alqode-dev.github.io/client-mockups/viper-fuel/" class="text-alq hover:underline break-all">https://alqode-dev.github.io/client-mockups/viper-fuel/</a></div>
+    <div class="text-[10px] text-slate mt-1 italic">Open the link on any device to view the working preview of your site.</div>
   </section>
 
-  <!-- Footer -->
-  <footer class="pt-6 border-t border-line text-xs text-slate">
-    <div class="flex flex-col md:flex-row justify-between gap-2">
-      <div>
-        <div class="font-semibold text-alq text-sm">&#123;alqode&#125; · Mohammed Hamdaan Dhaler</div>
-        <div>+27 84 893 1968 · alqode.com</div>
-      </div>
-      <div class="md:text-right italic">Valid 14 days from issue.</div>
+  <!-- ====== TERMS ====== -->
+  <section class="mb-8 text-[11px] text-slate leading-relaxed">
+    <div class="text-[10px] uppercase tracking-widest text-slate-dark font-semibold mb-2">Terms &amp; Conditions</div>
+    <ol class="list-decimal ml-4 space-y-1">
+      <li>This quotation is valid for 14 days from the issue date stated above.</li>
+      <li>50% deposit confirms acceptance and triggers commencement of work.</li>
+      <li>Project delivery timeline: 2 weeks from receipt of deposit to go-live.</li>
+      <li>1 round of revisions included after first delivery. Additional revisions billed at R350 per round.</li>
+      <li>Full intellectual-property ownership of the site transfers to Viper Fuel on go-live.</li>
+      <li>Hosting renewal from Year 2 onwards is the client's responsibility, unless an ALQODE Care plan is taken.</li>
+      <li>To accept: reply with confirmation by email or WhatsApp +27 84 893 1968.</li>
+    </ol>
+  </section>
+
+  <!-- ====== FOOTER / SIGNATURE ====== -->
+  <footer class="pt-5 border-t-2 border-ink flex justify-between items-end text-[11px]">
+    <div>
+      <div class="text-[10px] uppercase tracking-widest text-slate font-semibold mb-1">Prepared by</div>
+      <div class="font-semibold text-ink">Mohammed Hamdaan Dhaler</div>
+      <div class="text-slate-dark">Founder, {alqode}</div>
+      <div class="text-slate-dark">+27 84 893 1968 · alqodez@gmail.com</div>
+    </div>
+    <div class="text-right text-slate-light text-[10px] uppercase tracking-widest">
+      Quotation ALQ-2026-001<br/>
+      Page 1 of 1
     </div>
   </footer>
 
