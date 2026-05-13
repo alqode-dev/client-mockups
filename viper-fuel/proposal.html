@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website Proposal — Viper Fuel · prepared by {alqode}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --alq-green: #10B981;
+    --alq-green-deep: #059669;
+    --viper-red: #E11D2A;
+    --ink: #0F172A;
+    --ink-soft: #1F2937;
+    --slate: #475569;
+    --slate-light: #94A3B8;
+    --paper: #FAFAF7;
+    --paper-warm: #F5F4EE;
+    --line: #E2E8F0;
+  }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; }
+  .font-display { font-family: 'Playfair Display', serif; }
+  .text-alq { color: var(--alq-green-deep); }
+  .text-viper { color: var(--viper-red); }
+  .text-slate { color: var(--slate); }
+  .text-slate-light { color: var(--slate-light); }
+  .bg-paper-warm { background: var(--paper-warm); }
+  .border-line { border-color: var(--line); }
+  .border-alq { border-color: var(--alq-green); }
+
+  /* {alqode} brand mark */
+  .alq-mark {
+    font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.02em; color: var(--alq-green-deep);
+  }
+
+  /* Print styles */
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  @media print {
+    body { background: white; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .avoid-break { page-break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+    .shadow-print { box-shadow: none !important; border: 1px solid var(--line); }
+  }
+
+  /* Subtle paper grain */
+  .paper-grain {
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nf)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* Section number */
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.15em;
+    color: var(--alq-green-deep);
+  }
+
+  /* Inclusion checkmark */
+  .check-mark {
+    flex-shrink: 0; width: 20px; height: 20px;
+    color: var(--alq-green-deep);
+  }
+
+  /* Print/Save button — for browser viewing only */
+  .print-fab {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--ink); color: white;
+    padding: 14px 22px; border-radius: 999px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.05em;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    cursor: pointer; transition: transform 0.2s;
+    border: none; z-index: 100;
+  }
+  .print-fab:hover { transform: translateY(-2px); background: var(--alq-green-deep); }
+</style>
+</head>
+<body class="paper-grain">
+
+<!-- Print button (hidden on print) -->
+<button onclick="window.print()" class="print-fab no-print">⤓ &nbsp; Save as PDF</button>
+
+<div class="max-w-[820px] mx-auto px-8 md:px-12 py-12">
+
+  <!-- ============ HEADER ============ -->
+  <header class="flex items-start justify-between pb-8 mb-12 border-b-2 border-ink">
+    <div>
+      <div class="alq-mark text-2xl">&#123;alqode&#125;</div>
+      <div class="text-xs text-slate-light mt-1 tracking-wider uppercase">Digital Systems Agency · Cape Town</div>
+    </div>
+    <div class="text-right text-xs text-slate uppercase tracking-wider">
+      <div>Proposal · 2026-05-13</div>
+      <div class="mt-1">Ref: ALQ-VF-001</div>
+    </div>
+  </header>
+
+  <!-- ============ TITLE ============ -->
+  <section class="mb-14">
+    <div class="section-num uppercase mb-3">Website Proposal — One-page brochure with quote-request form</div>
+    <h1 class="font-display text-5xl md:text-6xl leading-[1.05] mb-6">
+      For <span class="text-viper">Viper Fuel</span>.<br/>
+      A site that turns site-managers<br/>
+      into phone calls.
+    </h1>
+    <div class="flex flex-wrap gap-x-10 gap-y-2 text-sm text-slate mt-8 pt-6 border-t border-line">
+      <div><span class="text-slate-light uppercase tracking-wider text-xs block">Prepared for</span>Jean West · Head of Operations &amp; Logistics</div>
+      <div><span class="text-slate-light uppercase tracking-wider text-xs block">Prepared by</span>Mohammed Hamdaan Dhaler · {alqode}</div>
+      <div><span class="text-slate-light uppercase tracking-wider text-xs block">Contact</span>+27 84 893 1968 · alqode.com</div>
+    </div>
+  </section>
+
+  <!-- ============ 01 — THE BRIEF ============ -->
+  <section class="mb-14 avoid-break">
+    <div class="section-num uppercase mb-3">01 — The brief</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-6">What you asked for.</h2>
+    <p class="text-lg leading-relaxed text-ink-soft mb-4">A 2-page website. Logo, homepage explaining the business and the industries you serve, contact details. No e-commerce, no complications. A site to boost the credibility of a diesel-on-demand operation that is already running and growing.</p>
+    <p class="text-lg leading-relaxed text-ink-soft">That's the brief. What follows is what we'll build for you, and how it will earn its cost back the first time a foreman finds you on Google at 2 am because his generator is running dry.</p>
+  </section>
+
+  <!-- ============ 02 — WHAT WE'LL BUILD ============ -->
+  <section class="mb-14">
+    <div class="section-num uppercase mb-3">02 — What we'll build</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-8">The site, in plain English.</h2>
+
+    <!-- Page 1 -->
+    <div class="mb-10 avoid-break">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="font-display text-2xl text-alq">Page 1</span>
+        <span class="text-xs uppercase tracking-widest text-slate-light">Home</span>
+      </div>
+      <ul class="space-y-3 text-base text-ink-soft">
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Hero</strong> — your name + call button + WhatsApp button visible above the fold. A foreman gets your phone before he scrolls.</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Industries served</strong> — 5 sections (agri, transport, generators, excavators, construction) with industry-specific copy. Visitor lands and immediately sees themselves on the page.</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>How it works</strong> — 3-step explanation: Call/WhatsApp → We deliver to site → Pay your way. Cuts the friction of "do I have to explain my whole site to them?"</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Why Viper</strong> — 4 trust signals: response time, coverage area, fuel-quality assurance, operator-led service. These are what foremen actually need to know.</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Client logo strip</strong> — placeholders to fill as you sign accounts. Trust builds visibly over time.</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Final quote form</strong> — industry, location, volume, urgency. Submits to your email with WhatsApp option enabled.</span></li>
+      </ul>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="avoid-break">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="font-display text-2xl text-alq">Page 2</span>
+        <span class="text-xs uppercase tracking-widest text-slate-light">Contact</span>
+      </div>
+      <ul class="space-y-3 text-base text-ink-soft">
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Click-to-call · click-to-WhatsApp · email</strong> — three contact rails. One tap dials 084 893 1968.</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Long-form quote form</strong> — for buyers who prefer to send a structured request.</span></li>
+        <li class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span><strong>Operating hours · service area · response-time promise</strong> — repeated as final closing trust.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 03 — TECHNICAL INCLUSIONS ============ -->
+  <section class="mb-14 avoid-break">
+    <div class="section-num uppercase mb-3">03 — Everything included</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-8">No surprise extras.</h2>
+
+    <div class="grid md:grid-cols-2 gap-x-10 gap-y-4 text-base text-ink-soft">
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Brand styling</strong><br/><span class="text-slate text-sm">Matched to your existing identity — red viper · flame · black field</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Mobile-first responsive</strong><br/><span class="text-slate text-sm">Built for foremen on phones in dust, not desktops</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Click-to-call buttons</strong><br/><span class="text-slate text-sm">One tap dials 084 893 1968 from any page</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>WhatsApp Business integration</strong><br/><span class="text-slate text-sm">Floating chat button + form-forwarding option</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>SEO foundation</strong><br/><span class="text-slate text-sm">Meta tags · sitemap · Google Search Console · schema markup for local business</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Domain handling</strong><br/><span class="text-slate text-sm">We resolve the suspended viperfuel.co.za — revive existing or fresh setup, your choice</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Hosting for Year 1</strong><br/><span class="text-slate text-sm">Fast, reliable, no monthly bill for the first 12 months</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>1 round of revisions</strong><br/><span class="text-slate text-sm">After first delivery — change copy, colours, sections as needed</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Handover training</strong><br/><span class="text-slate text-sm">30-min call — how to read enquiries, log into hosting, update content</span></div></div>
+      <div class="flex gap-3"><svg class="check-mark mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><div><strong>Full ownership</strong><br/><span class="text-slate text-sm">Site is yours on go-live — no lock-in, no hostage hosting</span></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 04 — INVESTMENT ============ -->
+  <section class="mb-14 avoid-break page-break">
+    <div class="section-num uppercase mb-3">04 — Investment</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-8">The number, the breakdown, the terms.</h2>
+
+    <!-- Headline price card -->
+    <div class="bg-ink text-white p-10 mb-8 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-32 h-32 rounded-full" style="background: radial-gradient(circle, var(--alq-green) 0%, transparent 70%); opacity: 0.4;"></div>
+      <div class="relative">
+        <div class="text-xs uppercase tracking-[0.3em] text-slate-light mb-3">Website build · one-time payment</div>
+        <div class="flex items-baseline gap-4">
+          <div class="font-display text-7xl md:text-8xl">R3,950</div>
+          <div class="text-slate-light text-sm">excl. VAT · ZAR</div>
+        </div>
+        <div class="mt-4 text-sm text-slate-light">Everything in sections 02 and 03 — fully included. No surprise extras.</div>
+      </div>
+    </div>
+
+    <!-- Breakdown -->
+    <div class="border border-line">
+      <div class="flex justify-between items-baseline p-5 border-b border-line">
+        <div>
+          <div class="font-medium">Website build (2 pages, integrations, SEO foundation)</div>
+          <div class="text-sm text-slate mt-1">One-time</div>
+        </div>
+        <div class="font-display text-2xl">R3,950</div>
+      </div>
+      <div class="flex justify-between items-baseline p-5 border-b border-line">
+        <div>
+          <div class="font-medium">Hosting + domain — Year 1</div>
+          <div class="text-sm text-slate mt-1">Included</div>
+        </div>
+        <div class="font-display text-2xl text-alq">Free</div>
+      </div>
+      <div class="flex justify-between items-baseline p-5 border-b border-line">
+        <div>
+          <div class="font-medium">1 round of revisions</div>
+          <div class="text-sm text-slate mt-1">Included</div>
+        </div>
+        <div class="font-display text-2xl text-alq">Free</div>
+      </div>
+      <div class="flex justify-between items-baseline p-5 border-b border-line">
+        <div>
+          <div class="font-medium">Handover training (30 min)</div>
+          <div class="text-sm text-slate mt-1">Included</div>
+        </div>
+        <div class="font-display text-2xl text-alq">Free</div>
+      </div>
+      <div class="flex justify-between items-baseline p-5 bg-paper-warm">
+        <div class="font-medium text-lg">Total — payable on acceptance</div>
+        <div class="font-display text-3xl">R3,950</div>
+      </div>
+    </div>
+
+    <!-- Optional addon -->
+    <div class="mt-8 border border-dashed border-line p-6 bg-paper-warm">
+      <div class="flex items-baseline justify-between mb-3">
+        <div class="text-xs uppercase tracking-[0.2em] text-slate">Optional · skip if not needed</div>
+        <div class="text-xs uppercase tracking-[0.2em] text-slate">From Year 2</div>
+      </div>
+      <div class="flex justify-between items-baseline">
+        <div>
+          <div class="font-medium">ALQODE Care — ongoing site management</div>
+          <div class="text-sm text-slate mt-1">Hosting beyond Year 1 · monthly content updates · security monitoring · WhatsApp escalation cover</div>
+        </div>
+        <div class="text-right ml-6">
+          <div class="font-display text-3xl">R350<span class="text-base text-slate">/mo</span></div>
+        </div>
+      </div>
+      <div class="mt-3 text-xs text-slate italic">Optional. You can manage the site yourself after handover. Care is for if you'd rather we keep it humming.</div>
+    </div>
+
+    <!-- Terms -->
+    <div class="mt-10 text-sm text-slate space-y-2">
+      <p><strong class="text-ink">Payment terms:</strong> 50% deposit on acceptance (R1,975) · 50% on go-live (R1,975) · EFT to {alqode} business account.</p>
+      <p><strong class="text-ink">Site ownership:</strong> Fully transferred to Viper Fuel on go-live. No lock-in. No hostage hosting.</p>
+      <p><strong class="text-ink">Quote validity:</strong> 14 days from issue date.</p>
+    </div>
+  </section>
+
+  <!-- ============ 05 — TIMELINE ============ -->
+  <section class="mb-14 avoid-break">
+    <div class="section-num uppercase mb-3">05 — Timeline</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-8">Live in 2 weeks from deposit.</h2>
+
+    <div class="space-y-4">
+      <div class="flex gap-6 items-start p-5 border-l-2 border-alq bg-paper-warm">
+        <div class="font-display text-3xl text-alq min-w-[80px]">Day 1–3</div>
+        <div>
+          <div class="font-medium mb-1">Sign-off + content collection</div>
+          <div class="text-sm text-slate">You approve the mockup, send any logos/photos you have, confirm copy. We start.</div>
+        </div>
+      </div>
+      <div class="flex gap-6 items-start p-5 border-l-2 border-alq bg-paper-warm">
+        <div class="font-display text-3xl text-alq min-w-[80px]">Day 4–10</div>
+        <div>
+          <div class="font-medium mb-1">Build + integration</div>
+          <div class="text-sm text-slate">Site built. Form connected to your email. WhatsApp integrated. Domain handled. SEO live.</div>
+        </div>
+      </div>
+      <div class="flex gap-6 items-start p-5 border-l-2 border-alq bg-paper-warm">
+        <div class="font-display text-3xl text-alq min-w-[80px]">Day 11–12</div>
+        <div>
+          <div class="font-medium mb-1">Your review + revisions</div>
+          <div class="text-sm text-slate">You see the working site. We adjust anything you want changed (1 round of revisions included).</div>
+        </div>
+      </div>
+      <div class="flex gap-6 items-start p-5 border-l-2 border-viper bg-paper-warm">
+        <div class="font-display text-3xl text-viper min-w-[80px]">Day 13–14</div>
+        <div>
+          <div class="font-medium mb-1">Go live</div>
+          <div class="text-sm text-slate">Domain points at the new site. Final 50% invoice. Handover call. Ready for Google.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 — WHY US ============ -->
+  <section class="mb-14 avoid-break">
+    <div class="section-num uppercase mb-3">06 — Why {alqode}</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-6">We build sites that pay for themselves.</h2>
+    <p class="text-lg leading-relaxed text-ink-soft mb-4">The site you're getting isn't a digital brochure. It's a salesperson that works around the clock — answering calls from foremen Googling "diesel delivery Cape Town" at 2 am when their generator is running dry. One closed bulk order pays for this site, and then some.</p>
+    <p class="text-lg leading-relaxed text-ink-soft mb-8">We're {alqode}: websites, automations, smart systems, customer comms, and lead capture for South African businesses. Cape Town-based, founder-led, accountable. Our work runs at Bochi Café, Trophy SA, and a real-estate operator in the UAE.</p>
+
+    <!-- Mockup preview -->
+    <div class="border border-line p-6 bg-paper-warm">
+      <div class="text-xs uppercase tracking-[0.2em] text-slate mb-2">Preview the live mockup</div>
+      <div class="font-display text-xl break-all"><a href="https://alqode-dev.github.io/client-mockups/viper-fuel/" class="text-alq hover:underline">alqode-dev.github.io/client-mockups/viper-fuel/</a></div>
+      <div class="text-sm text-slate mt-2">Open the link on your phone or computer. This is what your site will feel like — not a screenshot, the actual working preview.</div>
+    </div>
+  </section>
+
+  <!-- ============ 07 — NEXT STEP ============ -->
+  <section class="mb-12 avoid-break">
+    <div class="section-num uppercase mb-3">07 — How to say yes</div>
+    <h2 class="font-display text-3xl md:text-4xl mb-6">Two ways to start.</h2>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="border-2 border-ink p-6">
+        <div class="text-xs uppercase tracking-[0.2em] text-slate mb-2">Option A</div>
+        <div class="font-display text-2xl mb-3">Reply to this email</div>
+        <p class="text-sm text-slate leading-relaxed">Just hit reply and say "let's go." I'll send banking details + an invoice for the 50% deposit. Build starts next business day.</p>
+      </div>
+      <div class="border-2 border-alq p-6 bg-paper-warm">
+        <div class="text-xs uppercase tracking-[0.2em] text-alq mb-2">Option B · fastest</div>
+        <div class="font-display text-2xl mb-3">WhatsApp Hamdaan</div>
+        <p class="text-sm text-slate leading-relaxed">+27 84 893 1968. Single message: "Viper Fuel — accept." I'll confirm + send banking within the hour.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="pt-8 mt-8 border-t-2 border-ink flex flex-col md:flex-row justify-between gap-4 text-xs uppercase tracking-wider text-slate">
+    <div>
+      <div class="alq-mark text-base mb-1">&#123;alqode&#125;</div>
+      <div>Mohammed Hamdaan Dhaler · Founder</div>
+      <div>+27 84 893 1968 · alqode.com</div>
+    </div>
+    <div class="md:text-right">
+      <div>Proposal Ref · ALQ-VF-001</div>
+      <div>Issued · 2026-05-13 · Cape Town</div>
+      <div class="mt-1 italic text-slate-light normal-case">Valid 14 days</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
