@@ -3,495 +3,433 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Beyzaaan — Maison de Parfum</title>
+<title>Beyzaaan — Premium Perfumes</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bone: #F2EBD9;
-    --bone-light: #F8F2E4;
-    --bone-deep: #E8DFCB;
-    --ink: #1A1612;
-    --ink-soft: #2A241E;
-    --gold-deep: #A98A4B;
+    --navy: #0F1F3D;
+    --navy-deep: #08132A;
+    --navy-soft: #1F3258;
     --gold: #C9A871;
-    --gold-light: #D4B26A;
-    --burgundy: #5C1A1B;
-    --taupe: #998873;
+    --gold-light: #D9BC87;
+    --gold-deep: #A88950;
+    --cream: #F8F4ED;
+    --cream-soft: #FAF7F1;
+    --cream-warm: #F3EFE5;
+    --ink: #1A1A1A;
+    --slate: #6B7280;
+    --line: #E5E0D5;
   }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bone); color: var(--ink); font-family: 'Lora', serif; }
-  .font-display { font-family: 'Italiana', serif; font-weight: 400; letter-spacing: 0.04em; }
-  .font-ui { font-family: 'Karla', sans-serif; }
-  .font-body { font-family: 'Lora', serif; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--cream); }
+  .font-serif { font-family: 'Cormorant Garamond', serif; }
   .text-gold { color: var(--gold-deep); }
-  .text-gold-light { color: var(--gold-light); }
-  .text-burgundy { color: var(--burgundy); }
-  .text-taupe { color: var(--taupe); }
-  .text-bone { color: var(--bone); }
-  .text-bone-light { color: var(--bone-light); }
-  .bg-bone { background: var(--bone); }
-  .bg-bone-light { background: var(--bone-light); }
-  .bg-bone-deep { background: var(--bone-deep); }
-  .bg-ink { background: var(--ink); }
+  .text-navy { color: var(--navy); }
+  .text-cream { color: var(--cream); }
+  .text-slate { color: var(--slate); }
+  .bg-navy { background: var(--navy); }
+  .bg-navy-deep { background: var(--navy-deep); }
+  .bg-cream { background: var(--cream); }
+  .bg-cream-soft { background: var(--cream-soft); }
+  .bg-cream-warm { background: var(--cream-warm); }
+  .bg-gold { background: var(--gold); }
+  .border-line { border-color: var(--line); }
   .border-gold { border-color: var(--gold); }
-  .border-gold-deep { border-color: var(--gold-deep); }
-  .ornament-letterspacing { letter-spacing: 0.4em; }
 
-  /* paper grain */
-  .paper-grain {
-    background-image:
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nf)' opacity='0.05'/%3E%3C/svg%3E");
+  /* Bottle renderings */
+  .bottle {
+    border-radius: 2px 2px 4px 4px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12), inset 0 0 16px rgba(255,220,180,0.1);
   }
-  .paper-glow::before {
-    content: ''; position: absolute; inset: 0; pointer-events: none;
-    background-image:
-      radial-gradient(at 20% 30%, rgba(169,138,75,0.06) 0%, transparent 50%),
-      radial-gradient(at 80% 70%, rgba(92,26,27,0.04) 0%, transparent 50%);
+  .bottle::before {
+    content: ''; position: absolute; top: 4px; left: 6px;
+    width: 2px; height: 60%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%);
+    filter: blur(1px); border-radius: 2px;
   }
-
-  /* gold hairlines */
-  .hairline-gold { height: 1px; background: linear-gradient(90deg, transparent 0%, var(--gold-deep) 50%, transparent 100%); }
-  .hairline-gold-solid { height: 1px; background: var(--gold-deep); }
-
-  /* Islamic geometric 8-pointed star */
-  .ornament-star {
-    display: inline-block; width: 18px; height: 18px; background: var(--gold-deep);
-    clip-path: polygon(50% 0%, 65% 25%, 92% 30%, 77% 50%, 92% 70%, 65% 75%, 50% 100%, 35% 75%, 8% 70%, 23% 50%, 8% 30%, 35% 25%);
+  .bottle-cap {
+    width: 50%; height: 14%; margin: -7% auto 0;
+    background: linear-gradient(180deg, #E5C68C 0%, #C9A871 50%, #8A6B30 100%);
+    border-radius: 2px 2px 0 0;
+    position: relative; z-index: 1;
   }
-
-  /* Renaissance still-life background */
-  .stilllife-bg {
-    background:
-      radial-gradient(ellipse at 50% 55%, rgba(212,178,106,0.4) 0%, transparent 35%),
-      radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.7) 0%, transparent 55%),
-      linear-gradient(180deg, rgba(26,22,18,0.98) 0%, #1A1612 50%, #0d0a08 100%);
-  }
-  .bottle-glow { filter: drop-shadow(0 8px 24px rgba(169,138,75,0.35)); }
-
-  /* Drop cap */
-  .drop-cap::first-letter {
-    font-family: 'Italiana', serif;
-    font-size: 4.8em;
-    float: left;
-    line-height: 0.82;
-    margin: 0.06em 0.12em 0 0;
-    color: var(--gold-deep);
+  .bottle-neck {
+    width: 30%; margin: 0 auto;
+    height: 6%; background: rgba(138,107,48,0.6);
   }
 
-  /* Masthead letter reveal */
-  @keyframes ink-bleed {
-    0% { opacity: 0; transform: translateY(12px); filter: blur(8px); }
-    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-  }
-  .masthead-letter {
-    display: inline-block;
-    opacity: 0;
-    animation: ink-bleed 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+  /* Product card */
+  .product-card { transition: transform 0.35s, box-shadow 0.35s; }
+  .product-card:hover { transform: translateY(-4px); }
+  .product-card:hover .product-image { transform: scale(1.04); }
+  .product-image { transition: transform 0.5s; }
 
-  /* Soft fade for sections */
-  @keyframes drift {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .drift-in { animation: drift 1.6s ease-out 0.6s forwards; opacity: 0; }
-  .drift-in-late { animation: drift 1.6s ease-out 1.4s forwards; opacity: 0; }
+  /* Category tile */
+  .category-tile { transition: transform 0.4s; overflow: hidden; }
+  .category-tile:hover { transform: scale(1.02); }
+  .category-tile:hover img { transform: scale(1.05); }
+  .category-tile-inner img { transition: transform 0.5s; }
 
-  /* Collection row */
-  .collection-row { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-  .collection-row:hover { background: rgba(169,138,75,0.06); padding-left: 2rem; }
-  .collection-row:hover .collection-preview { opacity: 1; transform: translateX(0); }
-  .collection-row:hover .collection-num { color: var(--burgundy); }
-  .collection-num { transition: color 0.5s; }
-  .collection-preview { opacity: 0; transform: translateX(-12px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  /* Star rating */
+  .stars { letter-spacing: 0.1em; }
 
-  /* Handlabel — slightly rotated, parchment */
-  .handlabel {
-    transform: rotate(-1.5deg);
-    background: linear-gradient(180deg, #F8F2E4 0%, #EFE5CD 100%);
-    border: 1px solid var(--gold);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.18), inset 0 0 8px rgba(169,138,75,0.08);
-  }
-
-  /* Wax seal */
-  .wax-seal {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #8a2222 0%, #5C1A1B 50%, #3a0f10 100%);
-    box-shadow: inset -3px -3px 8px rgba(0,0,0,0.4), 0 3px 8px rgba(0,0,0,0.3);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold-light); font-family: 'Italiana', serif; font-size: 22px;
-  }
-
-  /* Subtle marquee for credentials */
-  .credentials-marquee { animation: scroll-x 50s linear infinite; }
+  /* Marquee */
+  .marquee { animation: scroll-x 40s linear infinite; }
   @keyframes scroll-x {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* Section spacing baseline */
-  .section-y { padding-top: 7rem; padding-bottom: 7rem; }
-  @media (max-width: 768px) { .section-y { padding-top: 5rem; padding-bottom: 5rem; } }
+  /* Soft bg patterns */
+  .navy-pattern {
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(201,168,113,0.15) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 70%, rgba(201,168,113,0.1) 0%, transparent 40%),
+      linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-soft) 100%);
+  }
 
-  /* Buttons */
-  .btn-ink {
-    font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.3em;
-    text-transform: uppercase; background: var(--ink); color: var(--bone-light);
-    padding: 16px 36px; transition: all 0.35s;
+  /* Pulse for live counter */
+  .pulse { animation: pulse-dot 2s infinite; }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
   }
-  .btn-ink:hover { background: var(--gold-deep); color: var(--ink); }
-  .btn-ghost {
-    font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.3em;
-    text-transform: uppercase; border: 1px solid var(--gold-deep); color: var(--ink);
-    padding: 16px 36px; transition: all 0.35s;
-  }
-  .btn-ghost:hover { background: var(--ink); color: var(--bone-light); border-color: var(--ink); }
-  .link-underline {
-    font-family: 'Karla', sans-serif; font-size: 11px; letter-spacing: 0.3em;
-    text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--gold-deep);
-    padding-bottom: 4px; transition: color 0.3s;
-  }
-  .link-underline:hover { color: var(--gold-deep); }
 </style>
 </head>
-<body class="paper-grain">
+<body>
 
-<!-- ============ TOP STRIP ============ -->
-<div class="border-b border-gold/20 py-3 text-center">
-  <div class="font-ui text-[10px] uppercase tracking-[0.35em] text-taupe">Complimentary delivery on orders above R750 · Cape Town · Nationwide</div>
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div class="bg-navy-deep text-cream py-2.5 text-center text-xs tracking-wider">
+  <span class="text-gold">★</span> &nbsp; FREE DELIVERY ON ORDERS R750+ &nbsp; · &nbsp; NATIONWIDE SHIPPING &nbsp; · &nbsp; 30-DAY RETURNS &nbsp; <span class="text-gold">★</span>
 </div>
 
-<!-- ============ MASTHEAD ============ -->
-<header class="relative pt-16 pb-10 border-b border-gold/30">
-  <button class="absolute top-6 md:top-12 left-6 md:left-10 font-ui text-[10px] uppercase tracking-[0.3em] text-ink/60 hover:text-gold-deep transition">Sign in</button>
-  <button class="absolute top-6 md:top-12 right-6 md:right-10 font-ui text-[10px] uppercase tracking-[0.3em] text-ink/60 hover:text-gold-deep transition">Order [2]</button>
-
-  <div class="text-center">
-    <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-5">Maison de Parfum · Est. 2026</div>
-    <h1 class="font-display text-[64px] sm:text-[100px] md:text-[140px] lg:text-[180px] leading-[0.95] mb-3">
-      <span class="masthead-letter" style="animation-delay:0s">B</span><span class="masthead-letter" style="animation-delay:0.07s">E</span><span class="masthead-letter" style="animation-delay:0.14s">Y</span><span class="masthead-letter" style="animation-delay:0.21s">Z</span><span class="masthead-letter" style="animation-delay:0.28s">A</span><span class="masthead-letter" style="animation-delay:0.35s">A</span><span class="masthead-letter" style="animation-delay:0.42s">A</span><span class="masthead-letter" style="animation-delay:0.49s">N</span>
-    </h1>
-    <div class="hairline-gold w-32 mx-auto mb-5"></div>
-    <div class="font-display italic text-sm md:text-base text-taupe drift-in">— premium fragrance, formulated from the East —</div>
+<!-- ============ HEADER ============ -->
+<header class="bg-cream-soft border-b border-line sticky top-0 z-50 backdrop-blur-sm bg-cream-soft/95">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="flex items-center justify-between py-5">
+      <div class="flex items-center gap-4 flex-1">
+        <button class="text-navy hover:text-gold transition lg:hidden"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <button class="text-navy hover:text-gold transition hidden lg:flex items-center gap-2 text-sm"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg> Search</button>
+      </div>
+      <a href="#" class="font-serif text-3xl md:text-4xl tracking-[0.15em] text-gold font-semibold">BEYZAAAN</a>
+      <div class="flex items-center justify-end gap-4 flex-1">
+        <a href="#" class="text-navy hover:text-gold transition hidden md:block text-sm">Sign in</a>
+        <button class="text-navy hover:text-gold transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+        <button class="relative text-navy hover:text-gold transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span class="absolute -top-2 -right-2 bg-gold text-navy-deep text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">2</span>
+        </button>
+      </div>
+    </div>
+    <nav class="hidden lg:flex justify-center items-center gap-10 py-3 border-t border-line text-xs uppercase tracking-[0.18em] text-navy font-medium">
+      <a href="#" class="hover:text-gold transition">Shop All</a>
+      <a href="#" class="hover:text-gold transition">For Her</a>
+      <a href="#" class="hover:text-gold transition">For Him</a>
+      <a href="#" class="hover:text-gold transition">Unisex</a>
+      <a href="#" class="hover:text-gold transition">Gift Sets</a>
+      <a href="#" class="hover:text-gold transition text-gold">New In</a>
+      <a href="#" class="hover:text-gold transition">Our Story</a>
+    </nav>
   </div>
-
-  <nav class="mt-10 md:mt-14 flex flex-wrap justify-center items-center gap-3 md:gap-8 font-ui text-[10px] md:text-[11px] uppercase tracking-[0.28em] drift-in-late">
-    <a href="#collection" class="hover:text-gold-deep transition">The Collection</a>
-    <span class="ornament-star opacity-50 hidden md:inline-block"></span>
-    <a href="#process" class="hover:text-gold-deep transition">The Process</a>
-    <span class="ornament-star opacity-50 hidden md:inline-block"></span>
-    <a href="#ritual" class="hover:text-gold-deep transition">The Ritual</a>
-    <span class="ornament-star opacity-50 hidden md:inline-block"></span>
-    <a href="#journal" class="hover:text-gold-deep transition">Journal</a>
-    <span class="ornament-star opacity-50 hidden md:inline-block"></span>
-    <a href="#atelier" class="hover:text-gold-deep transition">Atelier</a>
-  </nav>
 </header>
 
-<!-- ============ EDITORIAL HERO ============ -->
-<section class="relative paper-glow section-y">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-
-    <!-- Left: editor's letter -->
-    <div class="lg:col-span-7">
-      <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-8">Editor's Letter · May 2026</div>
-      <h2 class="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02] mb-10">
-        On the fragrance<br/>
-        that lives <em class="text-gold-deep">twice.</em>
-      </h2>
-      <div class="font-body text-base md:text-lg leading-loose text-ink/85 space-y-6 max-w-xl">
-        <p class="drop-cap">A perfume should be a quiet rebellion. Against the perfectly-packaged sameness of mass-market scents. Against the four-figure price tags of the houses we admire from a distance. Against the idea that luxury must, by definition, be unreachable.</p>
-        <p>Beyzaaan is a maison built on a single conviction: that the master perfumers of the East — the same noses who quietly supply some of the world's best-known houses — could just as easily compose for us. Without the markup. Without the marketing tax. Without the four ad agencies in between.</p>
-        <p>Every bottle is sealed in wax, dated, and labelled by hand from our atelier in Cape Town. The juice inside carries the same craft as the bottle on the counter at Liberty. What's missing is what wasn't there to begin with — the noise.</p>
+<!-- ============ HERO ============ -->
+<section class="navy-pattern py-16 md:py-24 lg:py-32 text-cream relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center relative">
+    <!-- Left content -->
+    <div class="z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gold/15 border border-gold/30 rounded-full mb-6">
+        <span class="text-gold text-[11px] uppercase tracking-[0.2em] font-medium">★ New: Layla Nights launched</span>
       </div>
-      <div class="mt-12 flex flex-wrap items-center gap-8">
-        <a href="#collection" class="link-underline">Browse the Collection</a>
-        <a href="#process" class="font-ui text-[11px] uppercase tracking-[0.3em] text-taupe hover:text-gold-deep transition">Our Process &nbsp;→</a>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-6">
+        Luxury perfume.<br/>
+        <em class="text-gold not-italic" style="font-style: italic;">Half the price.</em>
+      </h1>
+      <p class="text-base md:text-lg text-cream/75 leading-relaxed mb-10 max-w-lg">
+        Crafted in the East. Dispatched from Cape Town. Premium fragrances from R349 — same craft as the maisons, without the four-figure price tag.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#shop" class="bg-gold hover:bg-gold-light text-navy-deep px-8 py-4 font-semibold text-sm uppercase tracking-wider transition inline-flex items-center gap-2">
+          Shop the Collection
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#" class="border border-gold/50 text-cream hover:bg-gold/10 px-8 py-4 font-semibold text-sm uppercase tracking-wider transition">
+          Try Discovery Set R299
+        </a>
+      </div>
+      <!-- Trust micro -->
+      <div class="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-xs text-cream/60">
+        <span class="flex items-center gap-2"><svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg> 4.9/5 from 200+ wearers</span>
+        <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-400 pulse"></span> Same-day dispatch</span>
+        <span class="flex items-center gap-2"><svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> 100% authentic</span>
       </div>
     </div>
+    <!-- Right: bottles -->
+    <div class="relative h-[400px] md:h-[500px] flex items-end justify-center">
+      <div class="absolute inset-0 bg-gold/10 blur-[100px] rounded-full"></div>
+      <div class="relative flex items-end gap-3">
+        <!-- Bottle 1: rose -->
+        <div class="relative">
+          <div class="bottle-cap"></div>
+          <div class="bottle-neck"></div>
+          <div class="bottle w-24 h-44" style="background: linear-gradient(180deg, #FFD6CC 0%, #E8A89A 40%, #B05448 100%);">
+            <div class="absolute top-1/3 inset-x-2 bg-cream-soft border border-gold/30 py-1.5 text-center" style="transform: rotate(-1.5deg);">
+              <div class="font-serif italic text-[10px] text-navy">Mayar</div>
+              <div class="text-[6px] uppercase tracking-widest text-slate">50ml</div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottle 2: blue (hero) -->
+        <div class="relative">
+          <div class="bottle-cap" style="width: 55%;"></div>
+          <div class="bottle-neck"></div>
+          <div class="bottle w-32 h-60" style="background: linear-gradient(180deg, #B8CFFF 0%, #4A6FB8 35%, #1A2E5C 100%); box-shadow: 0 12px 32px rgba(0,0,0,0.3), inset 0 0 18px rgba(255,220,180,0.15);">
+            <div class="absolute top-1/3 inset-x-2 bg-cream-soft border border-gold/40 py-2 text-center" style="transform: rotate(-1.5deg);">
+              <div class="font-serif italic text-xs text-navy font-semibold">Invicto</div>
+              <div class="font-serif italic text-[10px] text-gold">Legend</div>
+              <div class="text-[6px] uppercase tracking-widest text-slate mt-0.5">50ml</div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottle 3: amber -->
+        <div class="relative">
+          <div class="bottle-cap"></div>
+          <div class="bottle-neck"></div>
+          <div class="bottle w-24 h-44" style="background: linear-gradient(180deg, #F5D89A 0%, #C89854 40%, #5C3A18 100%);">
+            <div class="absolute top-1/3 inset-x-2 bg-cream-soft border border-gold/30 py-1.5 text-center" style="transform: rotate(-1.5deg);">
+              <div class="font-serif italic text-[10px] text-navy">Oud Royal</div>
+              <div class="text-[6px] uppercase tracking-widest text-slate">50ml</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Right: still life -->
-    <div class="lg:col-span-5 lg:sticky lg:top-8">
-      <div class="relative aspect-[3/4] stilllife-bg overflow-hidden border border-gold/30">
-        <!-- Wax seal corner -->
-        <div class="absolute top-5 right-5 wax-seal z-10">B</div>
+<!-- ============ TRUST STRIP ============ -->
+<section class="bg-cream-soft border-b border-line py-6">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+    <div class="flex items-center gap-3 md:justify-center">
+      <svg class="w-7 h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m12 0h2a1 1 0 001-1v-3.65a1 1 0 00-.22-.624l-3.48-4.35A1 1 0 0016.52 8H13"/></svg>
+      <div class="text-left">
+        <div class="text-sm font-semibold text-navy">Free Delivery</div>
+        <div class="text-xs text-slate">On orders R750+</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 md:justify-center">
+      <svg class="w-7 h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      <div class="text-left">
+        <div class="text-sm font-semibold text-navy">Authentic &amp; Sealed</div>
+        <div class="text-xs text-slate">Every bottle, wax-sealed</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 md:justify-center">
+      <svg class="w-7 h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="text-left">
+        <div class="text-sm font-semibold text-navy">Long-Lasting Wear</div>
+        <div class="text-xs text-slate">8+ hours on skin</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 md:justify-center">
+      <svg class="w-7 h-7 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+      <div class="text-left">
+        <div class="text-sm font-semibold text-navy">PayFast Secure</div>
+        <div class="text-xs text-slate">EFT · Card · Instant EFT</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Bottle -->
-        <div class="absolute inset-0 flex items-end justify-center pb-14">
-          <div class="relative bottle-glow">
-            <div class="w-32 md:w-40 relative">
-              <!-- Cap -->
-              <div class="mx-auto w-14 md:w-16 h-7 md:h-8" style="background: linear-gradient(180deg, #E5C68C 0%, #C9A871 40%, #8A6B30 100%); border-radius: 2px 2px 0 0;"></div>
-              <div class="mx-auto w-10 h-2 bg-amber-900/60"></div>
-              <!-- Bottle body -->
-              <div class="relative h-56 md:h-72 rounded-sm overflow-hidden" style="background: linear-gradient(170deg, rgba(30,8,40,0.85) 0%, rgba(100,30,70,0.7) 30%, rgba(60,15,40,0.9) 70%, rgba(20,5,15,0.98) 100%); box-shadow: inset 0 0 35px rgba(212,178,106,0.18);">
-                <!-- Glass highlight -->
-                <div class="absolute top-3 left-4 w-1.5 h-32 md:h-40 rounded-full" style="background: linear-gradient(180deg, rgba(255,230,200,0.4) 0%, transparent 100%); filter: blur(2px);"></div>
-                <!-- Subtle bottom shadow -->
-                <div class="absolute bottom-0 inset-x-0 h-12" style="background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 100%);"></div>
+<!-- ============ SHOP BY CATEGORY ============ -->
+<section class="py-16 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Find Your Signature</div>
+      <h2 class="font-serif text-4xl md:text-5xl text-navy mb-3">Shop by Category</h2>
+      <p class="text-slate max-w-lg mx-auto">Whether it's a gift or your everyday scent, start here.</p>
+    </div>
 
-                <!-- Handlabel -->
-                <div class="absolute top-1/3 inset-x-4 handlabel py-2.5 px-2 text-center">
-                  <div class="font-display italic text-[7px] text-taupe">— Beyzaaan —</div>
-                  <div class="font-display text-[10px] mt-0.5 tracking-wider">N°02</div>
-                  <div class="hairline-gold-solid w-6 mx-auto my-1 opacity-50"></div>
-                  <div class="font-display italic text-[13px] md:text-[14px] leading-tight">Invicto Legend</div>
-                  <div class="font-ui text-[6px] uppercase tracking-[0.3em] text-taupe mt-1">50 ml · eau de parfum</div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <a href="#" class="category-tile relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-pink-100 to-rose-300 group">
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+          <div class="text-xs uppercase tracking-[0.3em] text-navy/70 mb-2">Eau de Parfum</div>
+          <h3 class="font-serif text-5xl text-navy mb-3">For Her</h3>
+          <p class="text-sm text-navy/70 mb-6">Floral · Sweet · Powdered Amber</p>
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-navy font-semibold bg-cream-soft/80 px-5 py-2.5 group-hover:bg-navy group-hover:text-cream transition">Shop For Her →</span>
+        </div>
+        <!-- Decorative bottle silhouette -->
+        <div class="absolute bottom-4 right-4 opacity-30">
+          <div class="bottle w-12 h-20" style="background: linear-gradient(180deg, #FFB8B8 0%, #C76060 100%);"></div>
+        </div>
+      </a>
+      <a href="#" class="category-tile relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-blue-200 to-indigo-400 group">
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+          <div class="text-xs uppercase tracking-[0.3em] text-navy/70 mb-2">Eau de Parfum</div>
+          <h3 class="font-serif text-5xl text-navy mb-3">For Him</h3>
+          <p class="text-sm text-navy/70 mb-6">Woody · Spicy · Aquatic</p>
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-navy font-semibold bg-cream-soft/80 px-5 py-2.5 group-hover:bg-navy group-hover:text-cream transition">Shop For Him →</span>
+        </div>
+        <div class="absolute bottom-4 right-4 opacity-30">
+          <div class="bottle w-12 h-20" style="background: linear-gradient(180deg, #A0BFFF 0%, #2A4A8A 100%);"></div>
+        </div>
+      </a>
+      <a href="#" class="category-tile relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-amber-100 to-orange-400 group">
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+          <div class="text-xs uppercase tracking-[0.3em] text-navy/70 mb-2">Eau de Parfum</div>
+          <h3 class="font-serif text-5xl text-navy mb-3">Unisex</h3>
+          <p class="text-sm text-navy/70 mb-6">Oud · Amber · Smoky Resin</p>
+          <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-navy font-semibold bg-cream-soft/80 px-5 py-2.5 group-hover:bg-navy group-hover:text-cream transition">Shop Unisex →</span>
+        </div>
+        <div class="absolute bottom-4 right-4 opacity-30">
+          <div class="bottle w-12 h-20" style="background: linear-gradient(180deg, #F5C97A 0%, #8A4A18 100%);"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEST SELLERS ============ -->
+<section id="shop" class="py-16 md:py-24 bg-cream-soft border-y border-line">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="flex items-end justify-between mb-12 flex-wrap gap-4">
+      <div>
+        <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Top Picks</div>
+        <h2 class="font-serif text-4xl md:text-5xl text-navy">Best Sellers</h2>
+      </div>
+      <a href="#" class="text-sm uppercase tracking-wider text-navy font-semibold border-b border-gold pb-1 hover:text-gold transition">View All →</a>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
+
+      <!-- Product 1: Mayar -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-rose-50 to-pink-100">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #FFD6CC 0%, #E8A89A 40%, #B05448 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/30 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[7px] text-navy">Mayar</div>
                 </div>
               </div>
-              <!-- Plinth -->
-              <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-44 h-2 bg-gradient-to-r from-transparent via-amber-900/40 to-transparent"></div>
             </div>
           </div>
-        </div>
-
-        <!-- Caption -->
-        <div class="absolute bottom-3 inset-x-0 text-center">
-          <div class="font-display italic text-[10px] text-gold-light/70">— photographed in atelier light · Cape Town, autumn 2026 —</div>
+          <span class="absolute top-3 left-3 bg-navy text-cream text-[9px] font-semibold px-2.5 py-1 uppercase tracking-wider">Best Seller</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">For Her · Floral</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Mayar</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(94)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <div class="flex items-baseline gap-2">
+              <span class="font-serif text-2xl text-navy">R599</span>
+              <span class="text-slate line-through text-sm">R799</span>
+            </div>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
+          </div>
         </div>
       </div>
 
-      <!-- Museum label -->
-      <div class="mt-6 flex items-start justify-between border-b border-gold/20 pb-5">
-        <div>
-          <div class="font-ui text-[10px] uppercase tracking-[0.3em] text-taupe">Featured Formulation</div>
-          <div class="font-display text-2xl mt-1">N°02 — Invicto Legend</div>
-          <div class="font-display italic text-sm text-taupe mt-1">For him · woody · aquatic · spice</div>
-        </div>
-        <div class="text-right">
-          <div class="font-ui text-[10px] uppercase tracking-[0.3em] text-taupe">From</div>
-          <div class="font-display text-3xl text-gold-deep">R549</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ ORNAMENT DIVIDER ============ -->
-<div class="py-10 flex items-center justify-center gap-6">
-  <div class="hairline-gold flex-1 max-w-32"></div>
-  <span class="ornament-star"></span>
-  <span class="font-display text-2xl text-gold-deep">⁂</span>
-  <span class="ornament-star"></span>
-  <div class="hairline-gold flex-1 max-w-32"></div>
-</div>
-
-<!-- ============ CREDENTIALS MARQUEE ============ -->
-<div class="border-y border-gold/20 py-5 bg-bone-deep overflow-hidden">
-  <div class="flex credentials-marquee whitespace-nowrap font-display italic text-base md:text-lg text-taupe">
-    <span class="px-8">Composed in the East</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Hand-labelled in Cape Town</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Sealed in wax</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Eau de parfum strength</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Half the maison price</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Composed in the East</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Hand-labelled in Cape Town</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Sealed in wax</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Eau de parfum strength</span><span class="text-gold-deep">·</span>
-    <span class="px-8">Half the maison price</span><span class="text-gold-deep">·</span>
-  </div>
-</div>
-
-<!-- ============ THE COLLECTION INDEX ============ -->
-<section id="collection" class="section-y paper-grain bg-bone-light">
-  <div class="max-w-5xl mx-auto px-6 lg:px-10">
-
-    <div class="text-center mb-20">
-      <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-4">The Index</div>
-      <h2 class="font-display text-5xl md:text-7xl mb-4">The Collection</h2>
-      <div class="hairline-gold w-32 mx-auto mb-5"></div>
-      <p class="font-display italic text-base md:text-lg text-taupe max-w-md mx-auto">Six formulations. Each a quiet conversation with a fragrance memory.</p>
-    </div>
-
-    <!-- Index rows -->
-    <div class="border-t border-gold-deep/30">
-
-      <a href="#" class="collection-row block border-b border-gold/20 py-7 px-4 grid grid-cols-12 gap-3 md:gap-6 items-center">
-        <div class="col-span-2 md:col-span-1 collection-num font-display text-2xl md:text-5xl text-gold-deep">N°01</div>
-        <div class="col-span-6 md:col-span-5">
-          <div class="font-display text-xl md:text-3xl mb-1">Mayar</div>
-          <div class="font-display italic text-xs md:text-sm text-taupe">For her — floral · sweet · powdered amber</div>
-        </div>
-        <div class="hidden md:block md:col-span-3 collection-preview font-body text-xs italic text-ink/65 leading-relaxed">
-          "She wore Mayar to the wedding. By the third hour, everyone had asked."
-        </div>
-        <div class="col-span-4 md:col-span-3 text-right">
-          <div class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-taupe">30 · 50 · 100ml</div>
-          <div class="font-display text-lg md:text-2xl text-gold-deep mt-1">From R349</div>
-        </div>
-      </a>
-
-      <a href="#" class="collection-row block border-b border-gold/20 py-7 px-4 grid grid-cols-12 gap-3 md:gap-6 items-center">
-        <div class="col-span-2 md:col-span-1 collection-num font-display text-2xl md:text-5xl text-gold-deep">N°02</div>
-        <div class="col-span-6 md:col-span-5">
-          <div class="font-display text-xl md:text-3xl mb-1">Invicto Legend</div>
-          <div class="font-display italic text-xs md:text-sm text-taupe">For him — bergamot · salt · ambergris</div>
-        </div>
-        <div class="hidden md:block md:col-span-3 collection-preview font-body text-xs italic text-ink/65 leading-relaxed">
-          "Bold, fresh, and persistent. The compliment-magnet of the collection."
-        </div>
-        <div class="col-span-4 md:col-span-3 text-right">
-          <div class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-taupe">30 · 50 · 100ml</div>
-          <div class="font-display text-lg md:text-2xl text-gold-deep mt-1">From R349</div>
-        </div>
-      </a>
-
-      <a href="#" class="collection-row block border-b border-gold/20 py-7 px-4 grid grid-cols-12 gap-3 md:gap-6 items-center">
-        <div class="col-span-2 md:col-span-1 collection-num font-display text-2xl md:text-5xl text-gold-deep">N°03</div>
-        <div class="col-span-6 md:col-span-5">
-          <div class="font-display text-xl md:text-3xl mb-1">Oud Royal</div>
-          <div class="font-display italic text-xs md:text-sm text-taupe">Unisex — oud · saffron · resinous warmth</div>
-        </div>
-        <div class="hidden md:block md:col-span-3 collection-preview font-body text-xs italic text-ink/65 leading-relaxed">
-          "The scent that makes my husband pause at the door."
-        </div>
-        <div class="col-span-4 md:col-span-3 text-right">
-          <div class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-taupe">30 · 50 · 100ml</div>
-          <div class="font-display text-lg md:text-2xl text-gold-deep mt-1">From R449</div>
-        </div>
-      </a>
-
-      <a href="#" class="collection-row block border-b border-gold/20 py-7 px-4 grid grid-cols-12 gap-3 md:gap-6 items-center">
-        <div class="col-span-2 md:col-span-1 collection-num font-display text-2xl md:text-5xl text-gold-deep">N°04</div>
-        <div class="col-span-6 md:col-span-5">
-          <div class="flex flex-wrap items-baseline gap-3 mb-1">
-            <div class="font-display text-xl md:text-3xl">Layla Nights</div>
-            <span class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.25em] text-burgundy border border-burgundy/60 px-2 py-0.5">Just released</span>
-          </div>
-          <div class="font-display italic text-xs md:text-sm text-taupe">For her — vanilla · tonka · whispered tobacco</div>
-        </div>
-        <div class="hidden md:block md:col-span-3 collection-preview font-body text-xs italic text-ink/65 leading-relaxed">
-          "Sleep, but the kind that asks to be remembered."
-        </div>
-        <div class="col-span-4 md:col-span-3 text-right">
-          <div class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-taupe">30 · 50 · 100ml</div>
-          <div class="font-display text-lg md:text-2xl text-gold-deep mt-1">From R399</div>
-        </div>
-      </a>
-
-      <a href="#" class="collection-row block border-b border-gold/20 py-7 px-4 grid grid-cols-12 gap-3 md:gap-6 items-center">
-        <div class="col-span-2 md:col-span-1 collection-num font-display text-2xl md:text-5xl text-gold-deep">N°05</div>
-        <div class="col-span-6 md:col-span-5">
-          <div class="font-display text-xl md:text-3xl mb-1">Rishq</div>
-          <div class="font-display italic text-xs md:text-sm text-taupe">For him — leather · cardamom · spiced cedar</div>
-        </div>
-        <div class="hidden md:block md:col-span-3 collection-preview font-body text-xs italic text-ink/65 leading-relaxed">
-          "Strangers turn around in elevators. It is uncanny."
-        </div>
-        <div class="col-span-4 md:col-span-3 text-right">
-          <div class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-taupe">30 · 50 · 100ml</div>
-          <div class="font-display text-lg md:text-2xl text-gold-deep mt-1">From R549</div>
-        </div>
-      </a>
-
-      <a href="#" class="collection-row block py-7 px-4 grid grid-cols-12 gap-3 md:gap-6 items-center">
-        <div class="col-span-2 md:col-span-1 collection-num font-display text-2xl md:text-5xl text-gold-deep">N°06</div>
-        <div class="col-span-6 md:col-span-5">
-          <div class="flex flex-wrap items-baseline gap-3 mb-1">
-            <div class="font-display text-xl md:text-3xl">Nahar</div>
-            <span class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.25em] text-gold-deep border border-gold-deep/60 px-2 py-0.5">Limited · 200 bottles</span>
-          </div>
-          <div class="font-display italic text-xs md:text-sm text-taupe">Unisex — bergamot · orange flower · sea salt</div>
-        </div>
-        <div class="hidden md:block md:col-span-3 collection-preview font-body text-xs italic text-ink/65 leading-relaxed">
-          "Morning, but with intent."
-        </div>
-        <div class="col-span-4 md:col-span-3 text-right">
-          <div class="font-ui text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-taupe">50 · 100ml</div>
-          <div class="font-display text-lg md:text-2xl text-gold-deep mt-1">From R649</div>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- Discovery set -->
-    <div class="mt-20 max-w-2xl mx-auto text-center bg-bone-deep p-10 md:p-14 border border-gold/30 relative">
-      <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-bone-deep px-4 font-ui text-[10px] uppercase tracking-[0.35em] text-gold-deep">Undecided?</div>
-      <h3 class="font-display text-3xl md:text-4xl mb-4">The Discovery Set</h3>
-      <p class="font-body text-base md:text-lg leading-loose text-ink/80 mb-8">
-        Six 2 ml vials of the entire collection in a wax-sealed walnut sleeve. R299, refundable in full against your first 50 ml acquisition.
-      </p>
-      <a href="#" class="btn-ink inline-block">Order the Discovery Set</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ PULL QUOTE ============ -->
-<section class="section-y max-w-4xl mx-auto px-6 lg:px-10 text-center">
-  <div class="hairline-gold w-20 mx-auto mb-12"></div>
-  <blockquote class="font-display text-3xl md:text-5xl leading-[1.15] text-ink/90">
-    "Luxury is not a price tag.<br/>
-    <em class="text-gold-deep">It is a quiet conviction</em><br/>
-    that something has been made carefully,<br/>
-    by someone who cared."
-  </blockquote>
-  <div class="mt-10 font-ui text-[10px] uppercase tracking-[0.35em] text-taupe">— from the Beyzaaan ledger · atelier notebook 2026</div>
-  <div class="hairline-gold w-20 mx-auto mt-12"></div>
-</section>
-
-<!-- ============ THE PROCESS ============ -->
-<section id="process" class="bg-ink text-bone section-y paper-grain">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
-
-      <!-- Left: atelier scene -->
-      <div class="lg:col-span-5">
-        <div class="aspect-[4/5] relative overflow-hidden border border-gold/30" style="background: radial-gradient(ellipse at 50% 45%, rgba(212,178,106,0.25) 0%, transparent 50%), linear-gradient(180deg, #1A1612 0%, #0d0a08 100%);">
-          <!-- Perfumer's bench -->
-          <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <div class="relative w-full max-w-xs flex items-end justify-center gap-2 px-6">
-              <div class="w-7 h-20 rounded-sm bottle-glow" style="background: linear-gradient(180deg, rgba(255,200,200,0.5) 0%, rgba(180,80,80,0.6) 60%, rgba(80,20,20,0.9) 100%);"></div>
-              <div class="w-9 h-24 rounded-sm bottle-glow" style="background: linear-gradient(180deg, rgba(255,220,180,0.5) 0%, rgba(200,140,80,0.6) 60%, rgba(100,60,20,0.9) 100%);"></div>
-              <div class="w-12 h-32 rounded-sm bottle-glow" style="background: linear-gradient(180deg, rgba(180,150,255,0.45) 0%, rgba(80,40,150,0.6) 60%, rgba(20,10,40,0.95) 100%);"></div>
-              <div class="w-10 h-28 rounded-sm bottle-glow" style="background: linear-gradient(180deg, rgba(180,220,255,0.45) 0%, rgba(60,100,180,0.6) 60%, rgba(10,30,80,0.95) 100%);"></div>
-              <div class="w-8 h-22 rounded-sm bottle-glow" style="background: linear-gradient(180deg, rgba(220,255,200,0.5) 0%, rgba(120,180,80,0.6) 60%, rgba(30,80,20,0.9) 100%);"></div>
-              <div class="w-7 h-20 rounded-sm bottle-glow" style="background: linear-gradient(180deg, rgba(255,210,160,0.5) 0%, rgba(200,130,60,0.6) 60%, rgba(100,40,10,0.9) 100%);"></div>
+      <!-- Product 2: Invicto Legend -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #B8CFFF 0%, #4A6FB8 35%, #1A2E5C 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/40 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[7px] text-navy font-semibold">Invicto</div>
+                </div>
+              </div>
             </div>
-            <!-- Bench -->
-            <div class="w-full h-1 bg-gradient-to-r from-transparent via-amber-900/70 to-transparent mt-2"></div>
-            <div class="w-3/4 h-px bg-gradient-to-r from-transparent via-amber-700/40 to-transparent mt-1"></div>
           </div>
-          <div class="absolute top-4 left-4 font-ui text-[9px] uppercase tracking-[0.3em] text-gold-light/60">Atelier · 04.2026</div>
-          <div class="absolute bottom-4 right-4 font-display italic text-xs text-gold-light/70">— formulations in maceration —</div>
+          <span class="absolute top-3 left-3 bg-navy text-cream text-[9px] font-semibold px-2.5 py-1 uppercase tracking-wider">Best Seller</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">For Him · Aquatic</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Invicto Legend</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(127)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <div class="flex items-baseline gap-2">
+              <span class="font-serif text-2xl text-navy">R549</span>
+              <span class="text-slate line-through text-sm">R799</span>
+            </div>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
+          </div>
         </div>
       </div>
 
-      <!-- Right: text -->
-      <div class="lg:col-span-7">
-        <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-light mb-6">The Process</div>
-        <h2 class="font-display text-5xl md:text-6xl leading-[1.05] mb-12">
-          From the souk<br/>
-          to your shelf.
-        </h2>
-
-        <div class="space-y-12 font-body text-base md:text-lg leading-loose text-bone/85 max-w-xl">
-          <div>
-            <div class="flex items-baseline gap-4 mb-3">
-              <span class="font-display text-3xl text-gold-light">I</span>
-              <span class="font-ui text-[10px] uppercase tracking-[0.35em] text-gold-light">Composition</span>
+      <!-- Product 3: Oud Royal -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-amber-50 to-orange-100">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #F5D89A 0%, #C89854 40%, #5C3A18 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/30 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[6px] text-navy">Oud Royal</div>
+                </div>
+              </div>
             </div>
-            <p>Every Beyzaaan formulation begins in the perfumeries of the East, where master noses still work from hand-written formulas in cedar-shelved laboratories. We brief, they compose, we revise — sometimes for months. No algorithm. No trend-led briefs. Just olfactory architecture.</p>
           </div>
-
-          <div>
-            <div class="flex items-baseline gap-4 mb-3">
-              <span class="font-display text-3xl text-gold-light">II</span>
-              <span class="font-ui text-[10px] uppercase tracking-[0.35em] text-gold-light">Maceration</span>
-            </div>
-            <p>The juice rests, sometimes for weeks, in glass before bottling. This is where the alchemy lives — what arrives in a bottle after maceration is dimensionally different from what was first composed. The shortcut is to skip this. We do not.</p>
+          <span class="absolute top-3 left-3 bg-red-700 text-cream text-[9px] font-semibold px-2.5 py-1 uppercase tracking-wider">Only 8 left</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">Unisex · Oud</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Oud Royal</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(213)</span>
           </div>
-
-          <div>
-            <div class="flex items-baseline gap-4 mb-3">
-              <span class="font-display text-3xl text-gold-light">III</span>
-              <span class="font-ui text-[10px] uppercase tracking-[0.35em] text-gold-light">Atelier finish</span>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <div class="flex items-baseline gap-2">
+              <span class="font-serif text-2xl text-navy">R749</span>
             </div>
-            <p>Every bottle that leaves our Cape Town atelier is wax-sealed, dated, and labelled by hand. The label carries the formulation number, the batch month, and — if you've asked us to — your name in iron-black ink. A luxury bottle should not arrive feeling industrial.</p>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4: Layla Nights (NEW) -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-purple-50 to-violet-200">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #D9C5F0 0%, #7A4DB5 40%, #2E1A50 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/40 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[6px] text-navy font-semibold">Layla</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-3 left-3 bg-gold text-navy-deep text-[9px] font-bold px-2.5 py-1 uppercase tracking-wider">Just In</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">For Her · Vanilla</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Layla Nights</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(38)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <div class="flex items-baseline gap-2">
+              <span class="font-serif text-2xl text-navy">R649</span>
+            </div>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -500,282 +438,404 @@
   </div>
 </section>
 
-<!-- ============ FORMULATION PYRAMID ============ -->
-<section class="bg-bone section-y paper-grain">
-  <div class="max-w-5xl mx-auto px-6 lg:px-10">
+<!-- ============ FEATURED PRODUCT SPOTLIGHT ============ -->
+<section class="py-20 bg-navy-deep text-cream relative overflow-hidden">
+  <div class="absolute inset-0 opacity-40" style="background: radial-gradient(ellipse at 30% 50%, rgba(201,168,113,0.3) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(201,168,113,0.15) 0%, transparent 50%);"></div>
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center relative">
 
-    <div class="text-center mb-20">
-      <div class="font-ui ornament-letterspacing text-[10px] uppercase text-burgundy mb-4">N°04 · Just Released</div>
-      <h2 class="font-display text-5xl md:text-7xl mb-4">Layla Nights</h2>
-      <div class="hairline-gold w-32 mx-auto mb-5"></div>
-      <p class="font-display italic text-base md:text-lg text-taupe max-w-lg mx-auto">First of a quartet inspired by the hours of the night. Worn 8 pm onward.</p>
-    </div>
-
-    <!-- Pyramid -->
-    <div class="relative max-w-2xl mx-auto" style="height: 460px;">
-
-      <!-- SVG pyramid outline -->
-      <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid meet">
-        <path d="M 200 30 L 50 420 L 350 420 Z" fill="none" stroke="var(--gold-deep)" stroke-opacity="0.35" stroke-width="1"/>
-        <line x1="50" y1="420" x2="350" y2="420" stroke="var(--gold-deep)" stroke-opacity="0.35" stroke-width="1"/>
-        <line x1="125" y1="220" x2="275" y2="220" stroke="var(--gold-deep)" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="4,4"/>
-        <!-- decorative star at apex -->
-        <circle cx="200" cy="30" r="3" fill="var(--gold-deep)"/>
-      </svg>
-
-      <!-- Top -->
-      <div class="absolute top-2 left-1/2 -translate-x-1/2 w-44 text-center">
-        <div class="font-ui text-[9px] uppercase tracking-[0.35em] text-gold-deep mb-2">Top</div>
-        <div class="font-display text-xl">Bergamot</div>
-        <div class="font-display italic text-sm text-taupe">Iranian rose petal</div>
+    <div class="text-center lg:text-left">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <span class="w-2 h-2 rounded-full bg-gold pulse"></span>
+        <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Just Launched</span>
       </div>
+      <h3 class="font-serif text-5xl md:text-6xl mb-3">Layla Nights</h3>
+      <div class="flex items-center justify-center lg:justify-start gap-2 mb-5">
+        <span class="text-gold stars text-lg">★★★★★</span>
+        <span class="text-cream/60 text-sm">38 reviews</span>
+      </div>
+      <p class="text-base md:text-lg text-cream/75 leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0">A bold vanilla-tonka-tobacco composition. Worn 8pm onward. The night, in a bottle.</p>
 
-      <!-- Heart -->
-      <div class="absolute top-1/2 -translate-y-1/2 inset-x-4 flex justify-between">
-        <div class="text-right">
-          <div class="font-ui text-[9px] uppercase tracking-[0.35em] text-gold-deep mb-2">Heart · I</div>
-          <div class="font-display text-xl">Tonka bean</div>
-          <div class="font-display italic text-sm text-taupe">Madagascar</div>
+      <!-- scent notes (simple) -->
+      <div class="grid grid-cols-3 gap-3 mb-8 max-w-lg mx-auto lg:mx-0">
+        <div class="border border-gold/30 p-3 text-center bg-cream/5">
+          <div class="text-[9px] uppercase tracking-widest text-gold mb-1">Top</div>
+          <div class="text-sm">Bergamot</div>
         </div>
-        <div class="text-left">
-          <div class="font-ui text-[9px] uppercase tracking-[0.35em] text-gold-deep mb-2">Heart · II</div>
-          <div class="font-display text-xl">Vanilla absolute</div>
-          <div class="font-display italic text-sm text-taupe">Tahitian, double-distilled</div>
+        <div class="border border-gold/30 p-3 text-center bg-cream/5">
+          <div class="text-[9px] uppercase tracking-widest text-gold mb-1">Heart</div>
+          <div class="text-sm">Vanilla · Tonka</div>
+        </div>
+        <div class="border border-gold/30 p-3 text-center bg-cream/5">
+          <div class="text-[9px] uppercase tracking-widest text-gold mb-1">Base</div>
+          <div class="text-sm">Tobacco · Amber</div>
         </div>
       </div>
 
-      <!-- Base -->
-      <div class="absolute bottom-0 left-0 right-0 flex justify-between items-end px-2">
-        <div class="text-left">
-          <div class="font-ui text-[9px] uppercase tracking-[0.35em] text-gold-deep mb-2">Base · I</div>
-          <div class="font-display text-xl">Whispered tobacco</div>
-          <div class="font-display italic text-sm text-taupe">Cuban leaf</div>
+      <!-- size selector -->
+      <div class="mb-8">
+        <div class="text-xs uppercase tracking-widest text-gold mb-3 text-center lg:text-left">Choose size</div>
+        <div class="flex gap-2 justify-center lg:justify-start flex-wrap">
+          <button class="px-5 py-3 border border-gold/40 text-sm hover:border-gold transition">30ml · R399</button>
+          <button class="px-5 py-3 border-2 border-gold bg-gold/15 text-sm text-gold font-semibold">50ml · R649</button>
+          <button class="px-5 py-3 border border-gold/40 text-sm hover:border-gold transition">100ml · R999</button>
         </div>
-        <div class="text-center">
-          <div class="font-ui text-[9px] uppercase tracking-[0.35em] text-gold-deep mb-2">Base · II</div>
-          <div class="font-display text-xl">Sandalwood</div>
-          <div class="font-display italic text-sm text-taupe">Mysore</div>
-        </div>
-        <div class="text-right">
-          <div class="font-ui text-[9px] uppercase tracking-[0.35em] text-gold-deep mb-2">Base · III</div>
-          <div class="font-display text-xl">Amber</div>
-          <div class="font-display italic text-sm text-taupe">Resin</div>
-        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button class="flex-1 bg-gold hover:bg-gold-light text-navy-deep py-4 font-bold uppercase tracking-wider text-sm transition">Add to Cart — R649</button>
+        <button class="px-5 py-4 border border-gold/40 hover:border-gold hover:bg-gold/10 transition"><svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></button>
+      </div>
+
+      <div class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 mt-6 text-xs text-cream/60">
+        <span>✓ In stock</span>
+        <span>✓ Ships in 24hr</span>
+        <span>✓ Free over R750</span>
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="mt-20 text-center">
-      <p class="font-display italic text-base md:text-lg text-taupe mb-6 max-w-lg mx-auto">
-        "Sleep, but the kind that asks to be remembered."
-      </p>
-      <a href="#" class="btn-ink inline-block">Acquire — N°04 · From R399</a>
-      <div class="mt-4 font-ui text-[10px] uppercase tracking-[0.3em] text-taupe">30 · 50 · 100 ml &nbsp; · &nbsp; Wax-sealed · Hand-labelled</div>
+    <!-- Big bottle on the right -->
+    <div class="relative h-[400px] md:h-[500px] flex items-center justify-center">
+      <div class="absolute inset-0 bg-gold/20 blur-[100px] rounded-full"></div>
+      <div class="relative">
+        <div class="bottle-cap" style="width: 70%;"></div>
+        <div class="bottle-neck"></div>
+        <div class="bottle w-44 h-80" style="background: linear-gradient(180deg, #E0C9F5 0%, #8A5DC8 30%, #3D2068 70%, #1A0E38 100%); box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 30px rgba(255,220,180,0.18);">
+          <div class="absolute top-1/3 inset-x-3 bg-cream-soft border-2 border-gold py-3 text-center" style="transform: rotate(-1.5deg);">
+            <div class="font-serif italic text-[8px] text-navy">— Beyzaaan —</div>
+            <div class="font-serif text-xl text-navy font-semibold mt-1">Layla</div>
+            <div class="font-serif italic text-base text-gold">Nights</div>
+            <div class="text-[8px] uppercase tracking-[0.3em] text-slate mt-1">Eau de Parfum · 50ml</div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- ============ THE RITUAL — PERSONALIZATION ============ -->
-<section id="ritual" class="section-y bg-bone-deep border-y border-gold/20 paper-grain relative overflow-hidden">
-  <div class="max-w-5xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+<!-- ============ BRAND STORY ============ -->
+<section class="py-16 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
 
+    <!-- Image side: artisanal scene -->
+    <div class="relative aspect-[4/3] bg-gradient-to-br from-amber-100 via-orange-200 to-amber-400 overflow-hidden border border-gold/30">
+      <!-- 5 bottles arranged in row -->
+      <div class="absolute inset-0 flex items-end justify-center gap-2 pb-8 px-6">
+        <div class="bottle w-7 h-20" style="background: linear-gradient(180deg, #FFD6CC 0%, #B05448 100%);"></div>
+        <div class="bottle w-8 h-24" style="background: linear-gradient(180deg, #B8CFFF 0%, #1A2E5C 100%);"></div>
+        <div class="bottle w-10 h-28" style="background: linear-gradient(180deg, #F5D89A 0%, #5C3A18 100%);"></div>
+        <div class="bottle w-9 h-26" style="background: linear-gradient(180deg, #D9C5F0 0%, #2E1A50 100%);"></div>
+        <div class="bottle w-7 h-20" style="background: linear-gradient(180deg, #C5F0D5 0%, #1A5028 100%);"></div>
+      </div>
+      <!-- "Bench" -->
+      <div class="absolute bottom-6 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-700/60 to-transparent"></div>
+      <div class="absolute top-4 left-4 text-[10px] uppercase tracking-widest text-navy/60">Atelier · Cape Town</div>
+    </div>
+
+    <!-- Text -->
     <div>
-      <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-4">The Beyzaaan Ritual</div>
-      <h2 class="font-display text-4xl md:text-5xl leading-[1.05] mb-8">
-        Every bottle,<br/>
-        <em class="text-gold-deep">labelled by hand.</em>
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Our Story</div>
+      <h2 class="font-serif text-4xl md:text-5xl text-navy leading-tight mb-6">
+        From the East,<br/>
+        to your shelf.
       </h2>
-      <p class="font-body text-base md:text-lg leading-loose text-ink/80 mb-6">
-        It is the small act of unwrapping the wax-sealed sleeve, finding a label with a date, a number, and — if you've asked us — your name, that turns a perfume from a product into a gift you give yourself.
+      <p class="text-base md:text-lg text-slate leading-relaxed mb-4">
+        Beyzaaan was born from a frustration we all share — the world's most beautiful perfumes are locked behind R3,000 price tags. So we went to the source.
       </p>
-      <p class="font-body text-base md:text-lg leading-loose text-ink/80 mb-10">
-        At checkout, name the bottle. We script it in iron-black ink, age the label in our atelier overnight, and dispatch the morning after.
+      <p class="text-base md:text-lg text-slate leading-relaxed mb-4">
+        Master perfumers in the East — the same houses that supply some of the world's best-known names — now compose for us. Every bottle is dispatched from our Cape Town atelier, wax-sealed, hand-labelled, ready in your post box within 48 hours.
       </p>
-      <a href="#" class="btn-ghost inline-block">See the labels →</a>
+      <p class="text-base md:text-lg text-slate leading-relaxed mb-8">
+        Same craft. Same wear. Half the price.
+      </p>
+      <a href="#" class="inline-flex items-center gap-2 text-sm uppercase tracking-wider text-navy font-semibold border-b-2 border-gold pb-1 hover:text-gold transition">
+        Read the full story →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEW ARRIVALS ============ -->
+<section class="py-16 md:py-24 bg-cream-soft border-t border-line">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Fresh Off The Bench</div>
+      <h2 class="font-serif text-4xl md:text-5xl text-navy">New Arrivals</h2>
     </div>
 
-    <!-- Bottle with personalized label -->
-    <div class="relative">
-      <div class="w-full max-w-sm mx-auto aspect-[3/4] relative">
-        <!-- Light glow -->
-        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 60%, rgba(212,178,106,0.15) 0%, transparent 60%);"></div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
 
-        <!-- Bottle silhouette -->
-        <div class="absolute inset-x-14 bottom-2 top-14 rounded-sm relative" style="background: linear-gradient(170deg, rgba(20,5,25,0.85) 0%, rgba(80,25,55,0.7) 30%, rgba(50,15,35,0.9) 70%, rgba(15,5,15,0.97) 100%); box-shadow: inset 0 0 40px rgba(169,138,75,0.18), 0 15px 40px rgba(0,0,0,0.25);">
-          <!-- Highlight -->
-          <div class="absolute top-3 left-4 w-1.5 h-32 rounded-full" style="background: linear-gradient(180deg, rgba(255,230,200,0.4) 0%, transparent 100%); filter: blur(2px);"></div>
-
-          <!-- Cap -->
-          <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-16 h-10" style="background: linear-gradient(180deg, #E5C68C 0%, #C9A871 40%, #8A6B30 100%); border-radius: 2px 2px 0 0;"></div>
-          <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-3 bg-amber-900/60"></div>
-
-          <!-- Wax seal on side -->
-          <div class="absolute top-4 -right-4 wax-seal" style="width:44px; height:44px; font-size:18px;">B</div>
-
-          <!-- Hand label -->
-          <div class="absolute top-1/4 inset-x-4 handlabel py-5 px-3">
-            <div class="text-center">
-              <div class="font-display italic text-[9px] text-taupe mb-1">— atelier of —</div>
-              <div class="font-display text-xl tracking-wider">BEYZAAAN</div>
-              <div class="hairline-gold-solid w-12 mx-auto my-2 opacity-50"></div>
-              <div class="font-display italic text-2xl">Hamdaan</div>
-              <div class="font-ui text-[7px] uppercase tracking-[0.3em] text-taupe mt-3">N°02 · Invicto Legend · 50ml</div>
-              <div class="font-ui text-[7px] uppercase tracking-[0.3em] text-taupe">Batch 04 · 2026</div>
+      <!-- New 1: Rishq -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-stone-100 to-stone-300">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #D4C0A8 0%, #8C6F45 40%, #3D2A15 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/30 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[7px] text-navy">Rishq</div>
+                </div>
+              </div>
             </div>
+          </div>
+          <span class="absolute top-3 left-3 bg-gold text-navy-deep text-[9px] font-bold px-2.5 py-1 uppercase tracking-wider">New</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">For Him · Leather</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Rishq</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(22)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <span class="font-serif text-2xl text-navy">R599</span>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- Side note -->
-      <div class="mt-6 text-center font-display italic text-xs text-taupe">— example label, personalised at checkout —</div>
-    </div>
+      <!-- New 2: Nahar -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-200">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #B0E0E0 0%, #4A9494 50%, #1A4040 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/30 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[7px] text-navy">Nahar</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-3 left-3 bg-gold text-navy-deep text-[9px] font-bold px-2.5 py-1 uppercase tracking-wider">New</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">Unisex · Citrus</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Nahar</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(14)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <span class="font-serif text-2xl text-navy">R649</span>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- New 3: Velvet -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-rose-100 to-fuchsia-300">
+          <div class="absolute inset-0 flex items-end justify-center pb-6 product-image">
+            <div class="relative">
+              <div class="bottle-cap"></div>
+              <div class="bottle-neck"></div>
+              <div class="bottle w-16 h-28" style="background: linear-gradient(180deg, #FFCCDD 0%, #C44494 50%, #5A1E48 100%);">
+                <div class="absolute top-1/3 inset-x-1 bg-cream-soft border border-gold/30 py-1 text-center" style="transform: rotate(-1.5deg);">
+                  <div class="font-serif italic text-[6px] text-navy">Velvet</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="absolute top-3 left-3 bg-gold text-navy-deep text-[9px] font-bold px-2.5 py-1 uppercase tracking-wider">New</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">For Her · Rose</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Velvet Rose</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(31)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <span class="font-serif text-2xl text-navy">R599</span>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- New 4: Discovery Set -->
+      <div class="product-card bg-white shadow-sm hover:shadow-xl">
+        <a href="#" class="block relative aspect-square overflow-hidden bg-gradient-to-br from-cream-warm to-amber-100">
+          <div class="absolute inset-0 flex items-center justify-center pb-6 product-image">
+            <!-- 6 mini bottles -->
+            <div class="grid grid-cols-3 gap-1.5 px-4">
+              <div class="bottle w-7 h-14" style="background: linear-gradient(180deg, #FFD6CC 0%, #B05448 100%);"></div>
+              <div class="bottle w-7 h-14" style="background: linear-gradient(180deg, #B8CFFF 0%, #1A2E5C 100%);"></div>
+              <div class="bottle w-7 h-14" style="background: linear-gradient(180deg, #F5D89A 0%, #5C3A18 100%);"></div>
+              <div class="bottle w-7 h-14" style="background: linear-gradient(180deg, #D9C5F0 0%, #2E1A50 100%);"></div>
+              <div class="bottle w-7 h-14" style="background: linear-gradient(180deg, #D4C0A8 0%, #3D2A15 100%);"></div>
+              <div class="bottle w-7 h-14" style="background: linear-gradient(180deg, #B0E0E0 0%, #1A4040 100%);"></div>
+            </div>
+          </div>
+          <span class="absolute top-3 left-3 bg-navy text-cream text-[9px] font-semibold px-2.5 py-1 uppercase tracking-wider">Try All 6</span>
+        </a>
+        <div class="p-5">
+          <div class="text-[10px] uppercase tracking-[0.18em] text-slate mb-1">Set · 6 x 2ml</div>
+          <h3 class="font-serif text-2xl text-navy mb-1">Discovery Set</h3>
+          <div class="flex items-center gap-1 text-xs mb-3">
+            <span class="text-gold stars text-sm">★★★★★</span>
+            <span class="text-slate">(89)</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2 flex-wrap">
+            <div class="flex items-baseline gap-2">
+              <span class="font-serif text-2xl text-navy">R299</span>
+              <span class="text-slate line-through text-sm">R499</span>
+            </div>
+            <button class="bg-navy hover:bg-gold hover:text-navy text-cream text-[10px] uppercase tracking-wider font-semibold px-4 py-2.5 transition">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ============ JOURNAL / LETTERS ============ -->
-<section id="journal" class="section-y">
-  <div class="max-w-6xl mx-auto px-6 lg:px-10">
-
-    <div class="text-center mb-20">
-      <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-4">Letters to the Atelier</div>
-      <h2 class="font-display text-5xl md:text-6xl mb-4">Wearers, in their words.</h2>
-      <div class="hairline-gold w-32 mx-auto"></div>
+<!-- ============ REVIEWS ============ -->
+<section class="py-16 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="text-xs uppercase tracking-[0.3em] text-gold mb-3">Wearers</div>
+      <h2 class="font-serif text-4xl md:text-5xl text-navy mb-3">Loved by 200+ in SA</h2>
+      <div class="flex items-center justify-center gap-2">
+        <span class="text-gold stars text-2xl">★★★★★</span>
+        <span class="text-navy font-semibold text-lg">4.9</span>
+        <span class="text-slate">average</span>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-12 lg:gap-16">
-
-      <div class="relative">
-        <div class="font-display text-8xl text-gold-deep/25 leading-none mb-2">"</div>
-        <p class="font-body italic text-base md:text-lg leading-loose text-ink/85 mb-8">
-          I bought N°02 expecting a competent dupe. What arrived was a bottle that opens conversations. My wife asked what I was wearing. Three people at work followed up the next day.
-        </p>
-        <div class="hairline-gold w-12 mb-4"></div>
-        <div class="font-display italic text-lg">— Yusuf · Cape Town</div>
-        <div class="font-ui text-[10px] uppercase tracking-[0.3em] text-taupe mt-1">Wearing N°02 Invicto Legend</div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white p-8 shadow-sm">
+        <div class="text-gold stars text-lg mb-4">★★★★★</div>
+        <p class="text-base text-ink leading-relaxed mb-6">"My husband asks what I'm wearing every time. Mayar has officially replaced everything in my collection."</p>
+        <div class="flex items-center justify-between text-sm">
+          <div>
+            <div class="font-semibold text-navy">Aaliyah K.</div>
+            <div class="text-slate text-xs">Johannesburg · Verified buyer</div>
+          </div>
+          <div class="text-[10px] uppercase tracking-widest text-gold">Mayar</div>
+        </div>
       </div>
-
-      <div class="relative">
-        <div class="font-display text-8xl text-gold-deep/25 leading-none mb-2">"</div>
-        <p class="font-body italic text-base md:text-lg leading-loose text-ink/85 mb-8">
-          Mayar is my daily. Eight hours on the skin minimum. I've stopped buying anything else, and my husband notices the second I walk in from the gym.
-        </p>
-        <div class="hairline-gold w-12 mb-4"></div>
-        <div class="font-display italic text-lg">— Aaliyah · Johannesburg</div>
-        <div class="font-ui text-[10px] uppercase tracking-[0.3em] text-taupe mt-1">Wearing N°01 Mayar</div>
+      <div class="bg-white p-8 shadow-sm border-2 border-gold/40">
+        <div class="text-gold stars text-lg mb-4">★★★★★</div>
+        <p class="text-base text-ink leading-relaxed mb-6">"Bought Invicto Legend expecting a competent dupe. Three colleagues asked at work the same day. I'm buying two more this week."</p>
+        <div class="flex items-center justify-between text-sm">
+          <div>
+            <div class="font-semibold text-navy">Yusuf D.</div>
+            <div class="text-slate text-xs">Cape Town · Verified buyer</div>
+          </div>
+          <div class="text-[10px] uppercase tracking-widest text-gold">Invicto</div>
+        </div>
       </div>
-
-      <div class="relative">
-        <div class="font-display text-8xl text-gold-deep/25 leading-none mb-2">"</div>
-        <p class="font-body italic text-base md:text-lg leading-loose text-ink/85 mb-8">
-          The packaging alone is worth the price. Wax seal. Hand-labelled. My name in iron-ink. I almost did not want to open it.
-        </p>
-        <div class="hairline-gold w-12 mb-4"></div>
-        <div class="font-display italic text-lg">— Tariq · Durban</div>
-        <div class="font-ui text-[10px] uppercase tracking-[0.3em] text-taupe mt-1">Wearing N°03 Oud Royal</div>
+      <div class="bg-white p-8 shadow-sm">
+        <div class="text-gold stars text-lg mb-4">★★★★★</div>
+        <p class="text-base text-ink leading-relaxed mb-6">"Wax-sealed bottle. Hand-labelled with my name. The packaging alone is worth the price — and the scent is divine."</p>
+        <div class="flex items-center justify-between text-sm">
+          <div>
+            <div class="font-semibold text-navy">Tariq M.</div>
+            <div class="text-slate text-xs">Durban · Verified buyer</div>
+          </div>
+          <div class="text-[10px] uppercase tracking-widest text-gold">Oud Royal</div>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ============ FORMULARY (NEWSLETTER) ============ -->
-<section class="bg-ink text-bone section-y paper-grain relative overflow-hidden">
-  <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(212,178,106,0.08) 0%, transparent 60%);"></div>
-  <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center relative">
-    <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-light mb-5">Join the Formulary</div>
-    <h2 class="font-display text-4xl md:text-6xl leading-[1.05] mb-8">
-      The perfumer's letter.<br/>
-      <em class="text-gold-light">Quarterly. Never daily.</em>
+<!-- ============ NEWSLETTER ============ -->
+<section class="py-16 md:py-20 navy-pattern text-cream relative overflow-hidden">
+  <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 50% 50%, rgba(201,168,113,0.4) 0%, transparent 60%);"></div>
+  <div class="max-w-3xl mx-auto px-4 lg:px-8 text-center relative">
+    <div class="text-xs uppercase tracking-[0.3em] text-gold mb-4">Join the List</div>
+    <h2 class="font-serif text-4xl md:text-5xl mb-4">
+      Get <span class="text-gold">10% off</span> your first order
     </h2>
-    <p class="font-body text-base md:text-lg leading-loose text-bone/70 mb-12 max-w-xl mx-auto">
-      Four times a year, a long letter. New formulations. Limited drops. What we're testing in the atelier. The occasional poem. Nothing that wastes your inbox.
-    </p>
-
-    <form class="max-w-md mx-auto flex gap-0 border border-gold/40">
-      <input type="email" placeholder="your@email.com" class="flex-1 bg-transparent px-5 py-4 font-body text-base text-bone focus:outline-none placeholder:text-bone/40 placeholder:italic" />
-      <button class="bg-gold-deep text-ink px-6 py-4 font-ui text-[11px] uppercase tracking-[0.3em] hover:bg-gold-light transition">Enter</button>
+    <p class="text-cream/70 max-w-lg mx-auto mb-8">Sign up for new launches, restock alerts, and members-only fragrance drops. No spam — we promise.</p>
+    <form class="max-w-md mx-auto flex gap-2">
+      <input type="email" placeholder="your@email.com" class="flex-1 bg-cream/10 border border-gold/40 px-5 py-4 text-cream placeholder:text-cream/50 focus:border-gold focus:outline-none transition" />
+      <button class="bg-gold hover:bg-gold-light text-navy-deep px-6 py-4 font-bold uppercase tracking-wider text-sm transition">Subscribe</button>
     </form>
-    <p class="font-display italic text-xs text-bone/40 mt-8">The first letter includes a R75 voucher toward your first acquisition.</p>
+    <p class="text-xs text-cream/40 mt-4 italic">Your 10% code lands in your inbox within seconds.</p>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer id="atelier" class="bg-bone-light pt-20 pb-10 border-t border-gold/30 paper-grain">
-  <div class="max-w-6xl mx-auto px-6 lg:px-10">
+<footer class="bg-navy-deep text-cream/70 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-10 mb-12 pb-12 border-b border-cream/10">
 
-    <!-- Wordmark -->
-    <div class="text-center mb-16 pb-14 border-b border-gold/20">
-      <div class="font-display text-5xl md:text-7xl mb-2 tracking-wider">BEYZAAAN</div>
-      <div class="font-display italic text-sm md:text-base text-taupe">— maison de parfum · Cape Town —</div>
-      <div class="hairline-gold w-24 mx-auto mt-5"></div>
+      <div class="md:col-span-1">
+        <div class="font-serif text-3xl tracking-[0.15em] text-gold font-semibold mb-3">BEYZAAAN</div>
+        <p class="text-sm leading-relaxed mb-4">Premium fragrances inspired by the world's most-loved houses. Crafted in the East. Priced for here.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 border border-cream/20 flex items-center justify-center hover:bg-gold hover:text-navy-deep hover:border-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="w-9 h-9 border border-cream/20 flex items-center justify-center hover:bg-gold hover:text-navy-deep hover:border-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+          <a href="#" class="w-9 h-9 border border-cream/20 flex items-center justify-center hover:bg-gold hover:text-navy-deep hover:border-gold transition"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-4">Shop</div>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-gold transition">All Fragrances</a></li>
+          <li><a href="#" class="hover:text-gold transition">For Her</a></li>
+          <li><a href="#" class="hover:text-gold transition">For Him</a></li>
+          <li><a href="#" class="hover:text-gold transition">Unisex</a></li>
+          <li><a href="#" class="hover:text-gold transition">Gift Sets</a></li>
+          <li><a href="#" class="hover:text-gold transition">Discovery Set</a></li>
+          <li><a href="#" class="hover:text-gold transition">Gift Cards</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-4">Help</div>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#" class="hover:text-gold transition">Contact Us</a></li>
+          <li><a href="#" class="hover:text-gold transition">Track Order</a></li>
+          <li><a href="#" class="hover:text-gold transition">Shipping &amp; Returns</a></li>
+          <li><a href="#" class="hover:text-gold transition">FAQs</a></li>
+          <li><a href="#" class="hover:text-gold transition">My Account</a></li>
+          <li><a href="#" class="hover:text-gold transition">Wholesale Enquiries</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-xs uppercase tracking-[0.2em] text-gold font-semibold mb-4">Get In Touch</div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg> WhatsApp us</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> hello@beyzaaan.co.za</li>
+          <li class="flex items-start gap-2"><svg class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Mon–Sat · 09:00–18:00</li>
+        </ul>
+        <div class="mt-5 pt-5 border-t border-cream/10">
+          <div class="text-[10px] uppercase tracking-widest text-cream/40 mb-2">We accept</div>
+          <div class="flex flex-wrap gap-2 text-[10px] text-cream/60">
+            <span class="px-2 py-1 border border-cream/15">PayFast</span>
+            <span class="px-2 py-1 border border-cream/15">Visa</span>
+            <span class="px-2 py-1 border border-cream/15">Mastercard</span>
+            <span class="px-2 py-1 border border-cream/15">EFT</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="grid md:grid-cols-4 gap-12 mb-16">
-
-      <div>
-        <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-5">The Collection</div>
-        <ul class="space-y-3 font-body text-sm text-ink/70">
-          <li><a href="#" class="hover:text-gold-deep transition">All Formulations</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">For Her</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">For Him</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Unisex</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Discovery Set</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Gift Cards</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-5">The Atelier</div>
-        <ul class="space-y-3 font-body text-sm text-ink/70">
-          <li><a href="#" class="hover:text-gold-deep transition">Our Story</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">The Process</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Personalisation</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Journal</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Press</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-5">Care</div>
-        <ul class="space-y-3 font-body text-sm text-ink/70">
-          <li><a href="#" class="hover:text-gold-deep transition">My Account</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Order Tracking</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Shipping &amp; Returns</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">FAQs</a></li>
-          <li><a href="#" class="hover:text-gold-deep transition">Contact the Atelier</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <div class="font-ui ornament-letterspacing text-[10px] uppercase text-gold-deep mb-5">A Letter Quarterly</div>
-        <p class="font-body text-sm leading-relaxed text-ink/70 mb-4 italic">Never daily. Never marketing.</p>
-        <form class="border-b border-gold-deep/30 pb-1">
-          <input type="email" placeholder="email" class="w-full bg-transparent py-2 font-body text-sm focus:outline-none placeholder:text-ink/30" />
-        </form>
-        <button class="mt-3 font-ui text-[10px] uppercase tracking-[0.3em] text-gold-deep hover:text-ink transition">Subscribe →</button>
-      </div>
-
-    </div>
-
-    <!-- Bottom strip -->
-    <div class="pt-8 border-t border-gold/20 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-ui text-[10px] uppercase tracking-[0.28em] text-taupe">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-cream/50">
       <div>© 2026 Beyzaaan Premium Perfumes · All rights reserved</div>
-      <div class="flex flex-wrap gap-6">
-        <span>PayFast · Visa · Mastercard · EFT</span>
-        <span>Crafted by <a href="https://alqode.com" class="text-gold-deep hover:text-ink transition">&#123;alqode&#125;</a></span>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-gold transition">Privacy</a>
+        <a href="#" class="hover:text-gold transition">Terms</a>
+        <a href="#" class="hover:text-gold transition">Cookies</a>
+        <span>Crafted by <a href="https://alqode.com" class="text-gold hover:text-gold-light transition">&#123;alqode&#125;</a></span>
       </div>
     </div>
 
   </div>
 </footer>
 
-<!-- ============ DISCREET FLOATING CTA ============ -->
-<a href="#" class="fixed bottom-6 right-6 z-50 group">
-  <div class="font-ui text-[10px] uppercase tracking-[0.3em] bg-bone border border-gold-deep text-ink px-5 py-3.5 hover:bg-ink hover:text-bone-light hover:border-ink transition shadow-md">
-    Speak with the atelier
-  </div>
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="#" class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition hover:scale-110">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
 </body>
